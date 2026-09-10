@@ -2,14 +2,14 @@ package com.example.queue_lesshealth;
 
 import org.junit.Test;
 
-public class Pelonio_Minipeta1 {
+public class Dimaano_Minipeta1 {
     @Test
     public void printMyProfile() {
 
-        String myName = "Ethan";
-        String petName = "Hades";
-        String favFood = "Nuggets";
-        int myAge = 16;
+        String myName = "Jeonghan";
+        String petName = "Quebee";
+        String favFood = "Caldereta";
+        int myAge = 17;
 
         System.out.println("--- MY DIGITAL PROFILE ---");
         System.out.println("Hello, my name is " + myName + " and I am " + myAge + " years old.");
