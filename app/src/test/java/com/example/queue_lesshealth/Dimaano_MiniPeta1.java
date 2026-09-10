@@ -1,15 +1,15 @@
+package com.example.queue_lesshealth;
+
 import org.junit.Test;
 
-public class Dimaano_Minipeta1 {
+public class Dimaano_MiniPeta1 {
     @Test
     public void printMyProfile() {
 
         String myName = "Jeonghan";
         String petName = "Quebee";
         String favFood = "Caldereta";
-        int package com.example.queue_lesshealth;
-
-myAge = 17;
+       int myAge = 17;
 
         System.out.println("--- MY DIGITAL PROFILE ---");
         System.out.println("Hello, my name is " + myName + " and I am " + myAge + " years old.");
