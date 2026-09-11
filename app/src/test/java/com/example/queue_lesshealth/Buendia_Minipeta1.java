@@ -1,0 +1,21 @@
+package com.example.queuelesshealth;
+
+import org.junit.Test;
+
+public class Buendia_Minipeta1 {
+    @Test
+
+    public void printMyProfile() {
+        // --- 1. THE INPUT (Storing your personal details in variables)---
+        String myName = "Kayleigh";
+        String petName = "Bella";
+        String favFOOD = "Beef";
+        int myAge = 16;
+
+        // ---2. THE OUTPUT (Printing to the console)
+        System.out.println("---- MY DIGITAL PROFILE ---");
+        System.out.println("Hello, my name is " + myName + " and I am " + myAge + " years old.");
+        System.out.println("I have a worlderful pet named" + petName + ".");
+        System.out.println("if I could, I would eat" + favFOOD + " every single day!");
+    }
+}
