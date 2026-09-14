@@ -1,4 +1,4 @@
-package com.example.queue_lesshealth;
+package com.example.queue_lesshealth.quarter2;
 
 import org.junit.Test;
 
