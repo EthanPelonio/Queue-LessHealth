@@ -1,4 +1,4 @@
-package com.example.queuelesshealth;
+package com.example.queue_lesshealth;
 
 import org.junit.Test;
 
