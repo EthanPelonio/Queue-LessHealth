@@ -7,7 +7,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("======k===========================");
+        System.out.println("=================================");
         System.out.println("       QUEUE-LESS HEALTH");
         System.out.println("          REGISTRATION");
         System.out.println("=================================");
