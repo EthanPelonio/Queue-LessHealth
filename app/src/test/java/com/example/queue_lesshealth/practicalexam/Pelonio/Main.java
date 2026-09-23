@@ -179,6 +179,7 @@ class FastFood {
         double discount = calculateDiscount(subtotal);
         double total = subtotal - discount;
 
+
         System.out.println("-----------------------------");
         System.out.printf(
                 "Subtotal: PHP %.2f%n", subtotal
