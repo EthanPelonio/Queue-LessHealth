@@ -1,7 +1,7 @@
 package com.example.queue_lesshealth.Minipeta3;
-
+import
 import java.util.Scanner;
-
+@Test
 public class AppointmentRequest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
