@@ -1,83 +1,61 @@
-package com.example.queue_lesshealth.Minipeta3;
-
-import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
-import org.junit.Test;
 
 public class Register {
 
-    @Test
-    public void testRegistration() {
-        // Simulate automated user typing (FullName \n Username \n Password \n ConfirmPassword \n Age)
-        String simulatedInput = "John Doe\njohndoe\nsecret123\nsecret123\n25\n";
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
+    public static User registerUser(
+            ArrayList<User> users) {
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("=================================");
-        System.out.println("       QUEUE-LESS HEALTH");
-        System.out.println("          REGISTRATION");
+        System.out.println("\n=================================");
+        System.out.println("             REGISTER");
         System.out.println("=================================");
 
-        System.out.print("Enter your full name: ");
-        String fullName = scanner.nextLine();
+        System.out.print("Full Name: ");
+        String name = sc.nextLine();
 
-        System.out.print("Enter username: ");
-        String username = scanner.nextLine();
+        System.out.print("Username: ");
+        String username = sc.nextLine();
 
-        while (username.trim().isEmpty()) {
-            System.out.println("Username cannot be empty.");
-            System.out.print("Enter username: ");
-            username = scanner.nextLine();
-        }
+        for (User user : users) {
 
-        System.out.print("Enter password: ");
-        String password = scanner.nextLine();
+            if (user.username.equalsIgnoreCase(username)) {
 
-        while (password.length() < 6) {
-            System.out.println("Password must be at least 6 characters.");
-            System.out.print("Enter password: ");
-            password = scanner.nextLine();
-        }
+                System.out.println(
+                        "\nUsername already exists."
+                );
 
-        System.out.print("Confirm password: ");
-        String confirmPassword = scanner.nextLine();
-
-        while (!password.equals(confirmPassword)) {
-            System.out.println("Passwords do not match.");
-            System.out.print("Confirm password again: ");
-            confirmPassword = scanner.nextLine();
-        }
-
-        int age;
-        while (true) {
-            System.out.print("Enter your age: ");
-
-            if (scanner.hasNextInt()) {
-                age = scanner.nextInt();
-
-                if (age > 0 && age <= 120) {
-                    break;
-                } else {
-                    System.out.println("Please enter a valid age.");
-                }
-            } else {
-                System.out.println("Please enter a number.");
-                scanner.next();
+                return null;
             }
         }
 
-        System.out.println();
-        System.out.println("=================================");
-        System.out.println("     REGISTRATION SUCCESSFUL!");
-        System.out.println("=================================");
-        System.out.println("Name     : " + fullName);
-        System.out.println("Username : " + username);
-        System.out.println("Age      : " + age);
-        System.out.println("=================================");
-        System.out.println("Welcome to Queue-Less Health, " + fullName + "!");
-        System.out.println("=================================");
+        System.out.print("Password: ");
+        String password = sc.nextLine();
 
-        scanner.close();
+        System.out.print("Age: ");
+        int age = Integer.parseInt(sc.nextLine());
+
+        System.out.print("Contact Number: ");
+        String contact = sc.nextLine();
+
+        User newUser = new User(
+                name,
+                username,
+                password,
+                age,
+                contact
+        );
+
+        users.add(newUser);
+
+        System.out.println("\n=================================");
+        System.out.println("      REGISTRATION SUCCESSFUL");
+        System.out.println("=================================");
+        System.out.println(
+                "Welcome, " + name + "!"
+        );
+
+        return newUser;
     }
 }
