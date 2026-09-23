@@ -41,7 +41,8 @@ class FastFood {
 
             choice = scanner.nextInt();
 
-            switch (choice) {
+            switch
+            (choice) {
 
                 case 1:
                     registerCustomer(scanner);
