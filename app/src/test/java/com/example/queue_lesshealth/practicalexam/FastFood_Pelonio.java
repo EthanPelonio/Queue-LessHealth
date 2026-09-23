@@ -1,4 +1,4 @@
 package com.example.queue_lesshealth.practicalexam;
 
-public class Main {
+public class FastFood_Pelonio {
 }
