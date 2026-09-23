@@ -103,6 +103,7 @@ class FastFood {
         displayMenu();
 
         System.out.print("\nEnter item number: ");
+
         int item = scanner.nextInt();
 
         System.out.print("Enter quantity: ");
