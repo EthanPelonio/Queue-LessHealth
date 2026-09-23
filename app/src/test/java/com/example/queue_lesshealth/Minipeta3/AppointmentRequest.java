@@ -1,38 +1,100 @@
-package com.example.queue_lesshealth.Minipeta3;
-import
+import java.util.ArrayList;
 import java.util.Scanner;
-@Test
+
 public class AppointmentRequest {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("=== APPOINTMENT REQUEST SYSTEM ===");
+    public static void showRequests(
+            User patient,
+            ArrayList<Appointment> appointments) {
 
-        System.out.print("Enter your name: ");
-        String name = scanner.nextLine();
+        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter your contact number: ");
-        String contact = scanner.nextLine();
+        System.out.println("\n=================================");
+        System.out.println("      APPOINTMENT REQUEST");
+        System.out.println("=================================");
 
-        System.out.print("Enter appointment date (MM/DD/YYYY): ");
-        String date = scanner.nextLine();
+        boolean found = false;
 
-        System.out.print("Enter appointment time: ");
-        String time = scanner.nextLine();
+        for (Appointment appointment : appointments) {
 
-        System.out.print("Enter purpose of appointment: ");
-        String purpose = scanner.nextLine();
+            if (appointment.patient == patient) {
 
-        System.out.println("\n=== APPOINTMENT REQUEST ===");
-        System.out.println("Name: " + name);
-        System.out.println("Contact: " + contact);
-        System.out.println("Date: " + date);
-        System.out.println("Time: " + time);
-        System.out.println("Purpose: " + purpose);
-        System.out.println("Status: REQUESTED");
+                found = true;
 
-        System.out.println("\nYour appointment request has been submitted.");
+                System.out.println("---------------------------------");
+                System.out.println("ID: " + appointment.id);
+                System.out.println("Doctor: " + appointment.doctor.name);
+                System.out.println("Date: " + appointment.date);
+                System.out.println("Time: " + appointment.time);
+                System.out.println("Status: " + appointment.status);
+            }
+        }
 
-        scanner.close();
+        if (!found) {
+            System.out.println("You have no appointment requests.");
+            return;
+        }
+
+        System.out.println("---------------------------------");
+        System.out.print("Enter Appointment ID: ");
+
+        int id = Integer.parseInt(sc.nextLine());
+
+        Appointment selected = null;
+
+        for (Appointment appointment : appointments) {
+
+            if (appointment.id == id &&
+                    appointment.patient == patient) {
+
+                selected = appointment;
+                break;
+            }
+        }
+
+        if (selected == null) {
+            System.out.println("Appointment not found.");
+            return;
+        }
+
+        System.out.println("\n[1] Confirm");
+        System.out.println("[2] Cancel");
+        System.out.println("[3] Reschedule");
+        System.out.println("[0] Back");
+
+        System.out.print("Choose: ");
+        int choice = Integer.parseInt(sc.nextLine());
+
+        switch (choice) {
+
+            case 1:
+                selected.status = "CONFIRMED";
+                System.out.println("Appointment confirmed.");
+                break;
+
+            case 2:
+                selected.status = "CANCELLED";
+                System.out.println("Appointment cancelled.");
+                break;
+
+            case 3:
+
+                System.out.print("New Date: ");
+                selected.date = sc.nextLine();
+
+                System.out.print("New Time: ");
+                selected.time = sc.nextLine();
+
+                selected.status = "RESCHEDULED";
+
+                System.out.println("Appointment rescheduled.");
+                break;
+
+            case 0:
+                break;
+
+            default:
+                System.out.println("Invalid option.");
+        }
     }
 }
