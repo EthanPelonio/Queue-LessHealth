@@ -155,3 +155,11 @@ class BookCollection {
         }
     }
 
+    public int getTotal() {
+        return titles.size();
+    }
+
+    public boolean isEmpty() {
+        return titles.isEmpty();
+    }
+}
