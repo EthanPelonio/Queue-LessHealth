@@ -32,3 +32,31 @@ class LibrarySystem {
             System.out.println("5. Show Total & Status");
             System.out.println("6. Exit");
             System.out.print("Enter choice: ");
+
+                        choice = scanner.nextInt();
+                        scanner.nextLine(); // Clear Enter key
+
+                        switch (choice) {
+                            case 1:
+                                registerUser(scanner);
+                                break;
+                            case 2:
+                                addBook(scanner);
+                                break;
+                            case 3:
+                                displayBooks();
+                                break;
+                            case 4:
+                                searchBook(scanner);
+                                break;
+                            case 5:
+                                displayStatus();
+                                break;
+                            case 6:
+                                System.out.println("Thank you for using Library System!");
+                                break;
+                            default:
+                                System.out.println("Invalid choice. Please try again.");
+                        }
+                    }
+                }
