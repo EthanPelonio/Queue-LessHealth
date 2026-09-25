@@ -1,37 +1,43 @@
-import java.util.ArrayList;
 import java.util.Scanner;
+import org.junit.Test;
 
 public class Login {
+    @Test
+    public static void main(String[] args) {
 
-    public static User loginUser(
-            ArrayList<User> users) {
+        Scanner scanner = new Scanner(System.in);
 
-        Scanner sc = new Scanner(System.in);
+        // Sample registered account
+        String registeredEmail = "patient@gmail.com";
+        String registeredPassword = "12345";
 
-        System.out.println("\n=================================");
-        System.out.println("             LOGIN");
         System.out.println("=================================");
+        System.out.println("        QUEUE-LESS HEALTH");
+        System.out.println("=================================");
+        System.out.println("              LOGIN");
+        System.out.println();
 
-        System.out.print("Username: ");
-        String username = sc.nextLine();
+        System.out.print("Enter Email: ");
+        String email = scanner.nextLine();
 
-        System.out.print("Password: ");
-        String password = sc.nextLine();
+        System.out.print("Enter Password: ");
+        String password = scanner.nextLine();
 
-        for (User user : users) {
+        // Check login information
+        if (email.equals(registeredEmail) &&
+                password.equals(registeredPassword)) {
 
-            if (user.username.equals(username)
-                    && user.password.equals(password)) {
+            System.out.println();
+            System.out.println("Login Successful!");
+            System.out.println("Welcome to Queue-Less Health.");
 
-                System.out.println("\nLogin successful!");
-                System.out.println("Welcome, " + user.name + "!");
+        } else {
 
-                return user;
-            }
+            System.out.println();
+            System.out.println("Invalid email or password.");
+            System.out.println("Please try again.");
         }
 
-        System.out.println("\nInvalid username or password.");
-
-        return null;
+        scanner.close();
     }
 }
