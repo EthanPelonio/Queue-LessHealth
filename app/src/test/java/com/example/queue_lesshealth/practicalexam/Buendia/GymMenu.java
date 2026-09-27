@@ -8,7 +8,7 @@ public class GymMenu {
         boolean running = true;
 
         while (running) {
-            System.out.println("\n=== GYM MENU ===");
+            System.out.println("=== GYM MENU ===");
             System.out.println("1. Enter Gym");
             System.out.println("2. Hire Trainer");
             System.out.println("3. Exit");
@@ -18,17 +18,17 @@ public class GymMenu {
             if (choice == 1) {
                 System.out.println("You entered the gym.");
                 System.out.println("Choose membership level:");
-                System.out.println("1. Level 1");
-                System.out.println("2. Level 2");
+                System.out.println("1. Regular");
+                System.out.println("2. VIP");
 
                 int level = scanner.nextInt();
 
                 if (level == 1) {
-                    System.out.println("Level 1 membership selected.");
+                    System.out.println("Regular membership selected.");
                     System.out.println("Trainer Assigned");
 
                 } else if (level == 2) {
-                    System.out.println("Level 2 membership selected.");
+                    System.out.println("VIP membership selected.");
                     System.out.println("Upgrade Required");
                 }
 
@@ -40,6 +40,15 @@ public class GymMenu {
                 running = false;
             }
         }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        GymMenu gymSystem = new GymMenu();
+        gymSystem.start(scanner);
+
+        scanner.close();
     }
 }
 
