@@ -62,20 +62,41 @@ public class ArcadeMenu {
 
         System.out.println();
         System.out.println("===== BUY TOKENS =====");
-        System.out.println("Tokens purchased successfully!");
 
         tokenCount++;
+
+        System.out.println("Tokens purchased successfully!");
+        System.out.println("Total token purchases: " + tokenCount);
     }
 
     public void claimPrize(Scanner scanner) {
 
+        System.out.println();
+        System.out.println("===== CLAIM PRIZE =====");
+        System.out.print("Enter ticket count: ");
+
+        ticketCount = scanner.nextInt();
+
+        if (ticketCount >= 500) {
+
+            System.out.println();
+            System.out.println("Congratulations!");
+            System.out.println("Teddy Bear Won");
+
+        } else {
+
+            System.out.println();
+            System.out.println("Not enough tickets.");
+            System.out.println("Keep Playing");
+        }
     }
 
     public void exitSystem() {
 
         System.out.println();
-        System.out.println("Thank you for playing at the Arcade!");
-        System.out.println("System shutting down...");
+        System.out.println("=================================");
+        System.out.println("     THANK YOU FOR PLAYING!");
+        System.out.println("=================================");
     }
 
     public static void main(String[] args) {
