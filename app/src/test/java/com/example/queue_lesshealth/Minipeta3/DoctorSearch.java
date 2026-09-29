@@ -1,14 +1,11 @@
 package com.example.queue_lesshealth.Minipeta3;
 
-public class DoctorSearch {
-}
-aimport java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DoctorSearch {
 
-    public static void displayAllDoctors(
-            ArrayList<Doctor> doctors) {
+    public static void displayAllDoctors(ArrayList<Doctor> doctors) {
 
         System.out.println("\n=================================");
         System.out.println("        AVAILABLE DOCTORS");
@@ -22,10 +19,10 @@ public class DoctorSearch {
     public static void displayDoctor(Doctor doctor) {
 
         System.out.println(
-                "ID: " + doctor.id +
-                        " | Dr. " + doctor.name +
-                        " | " + doctor.specialty +
-                        " | " + doctor.schedule
+                "ID: " + doctor.id
+                        + " | Dr. " + doctor.name
+                        + " | " + doctor.specialty
+                        + " | " + doctor.schedule
         );
     }
 
@@ -43,8 +40,7 @@ public class DoctorSearch {
         return null;
     }
 
-    public static void searchDoctor(
-            ArrayList<Doctor> doctors) {
+    public static void searchDoctor(ArrayList<Doctor> doctors) {
 
         Scanner sc = new Scanner(System.in);
 
@@ -58,6 +54,7 @@ public class DoctorSearch {
         System.out.println("[0] Back");
 
         System.out.print("Choose: ");
+
         int choice = Integer.parseInt(sc.nextLine());
 
         switch (choice) {
@@ -70,14 +67,14 @@ public class DoctorSearch {
             case 2:
 
                 System.out.print("Enter doctor name: ");
+
                 String name = sc.nextLine().toLowerCase();
 
                 boolean nameFound = false;
 
                 for (Doctor doctor : doctors) {
 
-                    if (doctor.name.toLowerCase()
-                            .contains(name)) {
+                    if (doctor.name.toLowerCase().contains(name)) {
 
                         displayDoctor(doctor);
                         nameFound = true;
@@ -93,6 +90,7 @@ public class DoctorSearch {
             case 3:
 
                 System.out.print("Enter specialty: ");
+
                 String specialty =
                         sc.nextLine().toLowerCase();
 
@@ -115,10 +113,13 @@ public class DoctorSearch {
                 break;
 
             case 0:
+
                 break;
 
             default:
+
                 System.out.println("Invalid option.");
+                break;
         }
     }
 }
