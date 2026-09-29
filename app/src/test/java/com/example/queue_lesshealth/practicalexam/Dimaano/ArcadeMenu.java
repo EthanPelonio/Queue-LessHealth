@@ -22,21 +22,25 @@ public class ArcadeMenu {
 
             choice = scanner.nextInt();
 
-            if (choice == 1) {
+            switch (choice) {
 
-                buyTokens();
+                case 1:
+                    buyTokens();
+                    break;
 
-            } else if (choice == 2) {
+                case 2:
+                    claimPrize(scanner);
+                    break;
 
-                claimPrize(scanner);
+                case 3:
+                    exitSystem();
+                    break;
 
-            } else if (choice == 3) {
-
-                exitSystem();
-
-            } else {
-
-                System.out.println("Invalid choice. Please try again.");
+                default:
+                    System.out.println();
+                    System.out.println("Invalid choice.");
+                    System.out.println("Please select 1, 2, or 3.");
+                    break;
             }
         }
     }
