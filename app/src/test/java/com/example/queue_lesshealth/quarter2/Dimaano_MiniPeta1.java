@@ -10,5 +10,3 @@ public class Dimaano_MiniPeta1 {
         String petName = "Quebee";
         String favFood = "Caldereta";
        int myAge = 17;
-     ]
-]
