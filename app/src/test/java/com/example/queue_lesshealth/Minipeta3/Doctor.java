@@ -16,3 +16,7 @@ public class Main {
 
         System.out.print("Enter Specialization: ");
         String specialization = scanner.nextLine();
+
+        System.out.print("Enter Doctor's Age: ");
+        int age = scanner.nextInt();
+        scanner.nextLine();
