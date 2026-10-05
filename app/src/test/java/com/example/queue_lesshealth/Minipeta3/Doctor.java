@@ -1,19 +1,12 @@
-public class Doctor {
+import java.util.Scanner;
 
-    int id;
-    String name;
-    String specialty;
-    String schedule;
+public class Main {
+    public static void main(String[] args) {
 
-    public Doctor(
-            int id,
-            String name,
-            String specialty,
-            String schedule) {
+        Scanner scanner = new Scanner(System.in);
 
-        this.id = id;
-        this.name = name;
-        this.specialty = specialty;
-        this.schedule = schedule;
-    }
-}
+        System.out.println("=================================");
+        System.out.println("        QUEUE-LESS HEALTH");
+        System.out.println("=================================");
+        System.out.println("        DOCTOR INFORMATION");
+        System.out.println();
