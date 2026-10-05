@@ -39,3 +39,51 @@ public class Main {
         int queueNumber;
         String status;
     }
+
+    // =========================
+    // APPOINTMENT BOOKING FORM
+    // =========================
+    public static Appointment bookAppointment(Scanner scanner) {
+
+        Appointment appointment = new Appointment();
+
+        System.out.println("\n=================================");
+        System.out.println("       APPOINTMENT BOOKING");
+        System.out.println("=================================");
+
+        System.out.print("Patient Name   : ");
+        String patientName = scanner.nextLine();
+
+        System.out.print("Doctor Name    : ");
+        String doctorName = scanner.nextLine();
+
+        System.out.print("Specialty      : ");
+        String specialty = scanner.nextLine();
+
+        System.out.print("Date           : ");
+        String date = scanner.nextLine();
+
+        System.out.print("Time           : ");
+        String time = scanner.nextLine();
+
+        System.out.print("Reason         : ");
+        String reason = scanner.nextLine();
+
+        // Create patient
+        appointment.patient = new Patient(patientName);
+
+        // Create doctor
+        appointment.doctor = new Doctor(doctorName, specialty);
+
+        // Appointment details
+        appointment.id = "APT-001";
+        appointment.date = date;
+        appointment.time = time;
+        appointment.reason = reason;
+        appointment.queueNumber = 1;
+        appointment.status = "PENDING";
+
+        System.out.println("\nAppointment successfully booked!");
+
+        return appointment;
+    }
