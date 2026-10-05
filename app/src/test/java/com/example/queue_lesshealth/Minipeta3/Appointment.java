@@ -64,7 +64,7 @@ class Main {
 
         System.out.println("==============================");
         System.out.println("Thank you for choosing");
-        System.out.println("QUEueless HEALTH CLINIC!");
+        System.out.println("Queueless HEALTH CLINIC!");
         System.out.println("==============================");
 
         input.close();

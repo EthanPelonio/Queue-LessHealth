@@ -1,100 +1,72 @@
-import java.util.ArrayList;
+package com.example.queue_lesshealth.Minipeta3;
+
 import java.util.Scanner;
 
-public class AppointmentRequest {
+ class AppointmentRequest {
+    public static void main(String[] args) {
 
-    public static void showRequests(
-            User patient,
-            ArrayList<Appointment> appointments) {
+        Scanner input = new Scanner(System.in);
 
-        Scanner sc = new Scanner(System.in);
+        System.out.println("====================================");
+        System.out.println("       QUEUELESS HEALTH CLINIC");
+        System.out.println("         APPOINTMENT REQUEST");
+        System.out.println("====================================");
 
-        System.out.println("\n=================================");
-        System.out.println("      APPOINTMENT REQUEST");
-        System.out.println("=================================");
+        System.out.print("Patient Name: ");
+        String name = input.nextLine();
 
-        boolean found = false;
+        System.out.print("Contact Number: ");
+        String contact = input.nextLine();
 
-        for (Appointment appointment : appointments) {
+        System.out.print("Appointment Date: ");
+        String date = input.nextLine();
 
-            if (appointment.patient == patient) {
+        System.out.print("Preferred Time: ");
+        String time = input.nextLine();
 
-                found = true;
+        System.out.println();
+        System.out.println("Choose Reason for Appointment:");
+        System.out.println("1. General Check-up");
+        System.out.println("2. Consultation");
+        System.out.println("3. Dental Check-up");
+        System.out.println("4. Laboratory Test");
 
-                System.out.println("---------------------------------");
-                System.out.println("ID: " + appointment.id);
-                System.out.println("Doctor: " + appointment.doctor.name);
-                System.out.println("Date: " + appointment.date);
-                System.out.println("Time: " + appointment.time);
-                System.out.println("Status: " + appointment.status);
-            }
+        System.out.print("Enter choice: ");
+        int choice = input.nextInt();
+
+        String reason;
+
+        if (choice == 1) {
+            reason = "General Check-up";
+        } else if (choice == 2) {
+            reason = "Consultation";
+        } else if (choice == 3) {
+            reason = "Dental Check-up";
+        } else if (choice == 4) {
+            reason = "Laboratory Test";
+        } else {
+            reason = "Other";
         }
 
-        if (!found) {
-            System.out.println("You have no appointment requests.");
-            return;
-        }
+        System.out.println();
+        System.out.println("====================================");
+        System.out.println("       APPOINTMENT REQUESTED");
+        System.out.println("====================================");
 
-        System.out.println("---------------------------------");
-        System.out.print("Enter Appointment ID: ");
+        System.out.println("Patient Name : " + name);
+        System.out.println("Contact      : " + contact);
+        System.out.println("Date         : " + date);
+        System.out.println("Time         : " + time);
+        System.out.println("Reason       : " + reason);
 
-        int id = Integer.parseInt(sc.nextLine());
+        System.out.println();
+        System.out.println("Status: PENDING");
+        System.out.println("Your appointment request has");
+        System.out.println("been sent to Queueless Health Clinic.");
+        System.out.println("Please wait for confirmation.");
 
-        Appointment selected = null;
+        System.out.println("====================================");
 
-        for (Appointment appointment : appointments) {
-
-            if (appointment.id == id &&
-                    appointment.patient == patient) {
-
-                selected = appointment;
-                break;
-            }
-        }
-
-        if (selected == null) {
-            System.out.println("Appointment not found.");
-            return;
-        }
-
-        System.out.println("\n[1] Confirm");
-        System.out.println("[2] Cancel");
-        System.out.println("[3] Reschedule");
-        System.out.println("[0] Back");
-
-        System.out.print("Choose: ");
-        int choice = Integer.parseInt(sc.nextLine());
-
-        switch (choice) {
-
-            case 1:
-                selected.status = "CONFIRMED";
-                System.out.println("Appointment confirmed.");
-                break;
-
-            case 2:
-                selected.status = "CANCELLED";
-                System.out.println("Appointment cancelled.");
-                break;
-
-            case 3:
-
-                System.out.print("New Date: ");
-                selected.date = sc.nextLine();
-
-                System.out.print("New Time: ");
-                selected.time = sc.nextLine();
-
-                selected.status = "RESCHEDULED";
-
-                System.out.println("Appointment rescheduled.");
-                break;
-
-            case 0:
-                break;
-
-            default:
-                System.out.println("Invalid option.");
-        }
+        input.close();
     }
 }
