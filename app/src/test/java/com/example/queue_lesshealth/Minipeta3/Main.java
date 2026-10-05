@@ -128,3 +128,33 @@ public class Main {
 
         display(appointment);
     }
+
+    // =========================
+    // MAIN PROGRAM
+    // =========================
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("=================================");
+        System.out.println("     ONLINE APPOINTMENT SYSTEM");
+        System.out.println("=================================");
+
+        // Book appointment
+        Appointment appointment = bookAppointment(scanner);
+
+        // Ask user if they want to confirm
+        System.out.print("\nConfirm appointment? (Y/N): ");
+        String choice = scanner.nextLine();
+
+        if (choice.equalsIgnoreCase("Y")) {
+            confirm(appointment);
+        } else {
+            System.out.println("\nAppointment was not confirmed.");
+
+            display(appointment);
+        }
+
+        scanner.close();
+    }
+}
