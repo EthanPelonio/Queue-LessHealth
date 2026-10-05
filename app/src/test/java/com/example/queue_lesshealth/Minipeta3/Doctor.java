@@ -10,3 +10,6 @@ public class Main {
         System.out.println("=================================");
         System.out.println("        DOCTOR INFORMATION");
         System.out.println();
+
+        System.out.print("Enter Doctor's Name: ");
+        String doctorName = scanner.nextLine();
