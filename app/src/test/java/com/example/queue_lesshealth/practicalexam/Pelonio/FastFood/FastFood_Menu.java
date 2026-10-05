@@ -1,4 +1,6 @@
-package com.example.queue_lesshealth.practicalexam.Pelonio;
+package com.example.queue_lesshealth.practicalexam.Pelonio.FastFood;
+
+import com.example.queue_lesshealth.practicalexam.Pelonio.Order;
 
 import java.util.Scanner;
 
