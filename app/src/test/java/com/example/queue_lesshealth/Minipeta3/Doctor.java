@@ -26,3 +26,6 @@ public class Main {
 
         System.out.print("Enter Contact Number: ");
         String contactNumber = scanner.nextLine();
+
+        System.out.print("Enter Hospital/Clinic: ");
+        String hospital = scanner.nextLine();
