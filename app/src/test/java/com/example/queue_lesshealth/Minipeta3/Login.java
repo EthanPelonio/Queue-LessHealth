@@ -1,9 +1,11 @@
+package com.example.queue_lesshealth.Minipeta3;
+
 import java.util.Scanner;
 import org.junit.Test;
 
 public class Login {
     @Test
-    public static void main(String[] args) {
+    public void main() {
 
         Scanner scanner = new Scanner(System.in);
 

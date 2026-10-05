@@ -1,10 +1,11 @@
+package com.example.queue_lesshealth.Minipeta3;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-import org.junit.Test;
 
 
-public class Main {
-@Test
+ class MainMenu {
+
     static Scanner sc = new Scanner(System.in);
 
     // =========================================================

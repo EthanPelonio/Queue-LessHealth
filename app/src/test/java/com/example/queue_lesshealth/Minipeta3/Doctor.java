@@ -2,7 +2,7 @@ package com.example.queue_lesshealth.Minipeta3;
 
 import java.util.Scanner;
 
-class Main {
+class Doctor {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);

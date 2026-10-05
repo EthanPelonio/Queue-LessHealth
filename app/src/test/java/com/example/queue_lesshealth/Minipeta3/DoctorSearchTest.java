@@ -19,41 +19,28 @@ public class DoctorSearchTest {
 
             public void main(String[] args) {
 
-                Scanner scanner = new Scanner(System.in);
+                Scanner sc = new Scanner(System.in);
 
                 String[] doctors = {
-                        "Dr. Santos - General Medicine",
-                        "Dr. Cruz - Pediatrics",
-                        "Dr. Reyes - Cardiology",
-                        "Dr. Garcia - Dermatology"
+                        "Dr. Maria Santos - Cardiologist",
+                        "Dr. Juan Cruz - Dermatologist",
+                        "Dr. Anna Reyes - Pediatrician",
+                        "Dr. Carlos Garcia - Neurologist",
+                        "Dr. Sofia Lim - Dentist"
                 };
 
-                System.out.println("================================");
-                System.out.println("       DOCTOR SEARCH SYSTEM");
-                System.out.println("================================");
-
-                System.out.print("Enter doctor's name or specialty: ");
-                String search = scanner.nextLine().toLowerCase();
-
-                System.out.println("\nSearch Results:");
-
-                boolean found = false;
+                System.out.print("Search doctor: ");
+                String search = sc.nextLine().toLowerCase();
 
                 for (String doctor : doctors) {
                     if (doctor.toLowerCase().contains(search)) {
-                        System.out.println("- " + doctor);
-                        found = true;
+                        System.out.println(doctor);
                     }
                 }
 
-                if (!found) {
-                    System.out.println("No doctor found.");
-                }
-
-                scanner.close();
+                sc.close();
             }
         }
-
 
 
 

@@ -1,3 +1,5 @@
+package com.example.queue_lesshealth.Minipeta3;
+
 public class MenuTestingFile {
 
     public static boolean isValidChoice(int choice) {

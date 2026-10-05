@@ -1,40 +1,48 @@
+package com.example.queue_lesshealth.Minipeta3;
+
+import java.util.Scanner;
+
 public class AppointmentConfirmationScreen {
 
-    public static void display(Appointment appointment) {
+    public static void main(String[] args) {
 
-        if (appointment == null) {
-            System.out.println("No appointment found.");
-            return;
-        }
+        Scanner input = new Scanner(System.in);
 
-        System.out.println("\n=================================");
-        System.out.println("    APPOINTMENT CONFIRMATION");
-        System.out.println("=================================");
+        System.out.println("======================================");
+        System.out.println("       QUEUELESS HEALTH CLINIC");
+        System.out.println("       APPOINTMENT CONFIRMATION");
+        System.out.println("======================================");
 
-        System.out.println("Appointment ID : " + appointment.id);
-        System.out.println("Patient        : " + appointment.patient.name);
-        System.out.println("Doctor         : " + appointment.doctor.name);
-        System.out.println("Specialty      : " + appointment.doctor.specialty);
-        System.out.println("Date           : " + appointment.date);
-        System.out.println("Time           : " + appointment.time);
-        System.out.println("Reason         : " + appointment.reason);
-        System.out.println("Queue Number   : " + appointment.queueNumber);
-        System.out.println("Status         : " + appointment.status);
+        System.out.print("Patient Name: ");
+        String name = input.nextLine();
 
-        System.out.println("=================================");
-    }
+        System.out.print("Appointment Date: ");
+        String date = input.nextLine();
 
-    public static void confirm(Appointment appointment) {
+        System.out.print("Appointment Time: ");
+        String time = input.nextLine();
 
-        if (appointment == null) {
-            System.out.println("Appointment not found.");
-            return;
-        }
+        System.out.print("Reason: ");
+        String reason = input.nextLine();
 
-        appointment.status = "CONFIRMED";
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println("       APPOINTMENT CONFIRMED!");
+        System.out.println("======================================");
 
-        System.out.println("\nAppointment successfully confirmed!");
+        System.out.println("Patient Name : " + name);
+        System.out.println("Date         : " + date);
+        System.out.println("Time         : " + time);
+        System.out.println("Reason       : " + reason);
+        System.out.println("Status       : CONFIRMED");
 
-        display(appointment);
+        System.out.println("--------------------------------------");
+        System.out.println("Please arrive 10 minutes early.");
+        System.out.println("Thank you for choosing");
+        System.out.println("QUEUELESS HEALTH CLINIC!");
+        System.out.println("======================================");
+
+        input.close();
     }
 }
+
