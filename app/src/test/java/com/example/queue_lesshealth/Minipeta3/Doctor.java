@@ -29,3 +29,6 @@ public class Main {
 
         System.out.print("Enter Hospital/Clinic: ");
         String hospital = scanner.nextLine();
+
+        System.out.print("Enter Consultation Schedule: ");
+        String schedule = scanner.nextLine();
