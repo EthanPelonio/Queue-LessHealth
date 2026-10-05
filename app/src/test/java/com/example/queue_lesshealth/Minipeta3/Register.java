@@ -50,7 +50,7 @@ public class Register {
         }
 
         int age;
-        while (true) {
+        while (true) {//wdasdwad
             System.out.print("Enter your age: ");
 
             if (scanner.hasNextInt()) {
