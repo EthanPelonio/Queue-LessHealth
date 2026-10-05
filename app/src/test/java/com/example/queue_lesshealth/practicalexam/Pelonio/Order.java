@@ -9,7 +9,6 @@ public class Order {
     private ArrayList<Integer> quantities;
 
     public Order() {
-
         itemNames = new ArrayList<>();
         prices = new ArrayList<>();
         quantities = new ArrayList<>();
@@ -27,7 +26,6 @@ public class Order {
         double subtotal = 0;
 
         for (int i = 0; i < itemNames.size(); i++) {
-
             subtotal += prices.get(i) * quantities.get(i);
         }
 
@@ -43,27 +41,15 @@ public class Order {
 
         for (int i = 0; i < itemNames.size(); i++) {
 
-            double itemTotal =
-                    prices.get(i) * quantities.get(i);
+            double itemTotal = prices.get(i) * quantities.get(i);
 
             System.out.printf(
-                    "%dx %-12s PHP %.2f%n",
-                    quantities.get(i),
+                    "%d. %s x%d - PHP %.2f%n",
+                    i + 1,
                     itemNames.get(i),
+                    quantities.get(i),
                     itemTotal
             );
         }
-    }
-
-    public int getItemCount() {
-
-        return itemNames.size();
-    }
-
-    public void clearOrder() {
-
-        itemNames.clear();
-        prices.clear();
-        quantities.clear();
     }
 }

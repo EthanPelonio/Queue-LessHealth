@@ -26,6 +26,13 @@ public class FastFood_Menu {
             System.out.println("5. Exit");
             System.out.print("Enter choice: ");
 
+            // Prevent input errors
+            if (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine();
+                continue;
+            }
+
             choice = scanner.nextInt();
 
             switch (choice) {
@@ -65,6 +72,10 @@ public class FastFood_Menu {
         System.out.print("Enter customer name: ");
         customerName = scanner.nextLine();
 
+        if (customerName.trim().isEmpty()) {
+            customerName = "Guest";
+        }
+
         System.out.println("Customer registered successfully!");
     }
 
@@ -83,15 +94,14 @@ public class FastFood_Menu {
         displayMenu();
 
         System.out.print("\nEnter item number: ");
-        int item = scanner.nextInt();
 
-        System.out.print("Enter quantity: ");
-        int quantity = scanner.nextInt();
-
-        if (quantity <= 0) {
-            System.out.println("Quantity must be greater than zero.");
+        if (!scanner.hasNextInt()) {
+            System.out.println("Invalid item number.");
+            scanner.nextLine();
             return;
         }
+
+        int item = scanner.nextInt();
 
         String itemName;
         double price;
@@ -100,27 +110,27 @@ public class FastFood_Menu {
 
             case 1:
                 itemName = "Burger";
-                price = 85;
+                price = 85.00;
                 break;
 
             case 2:
                 itemName = "Fries";
-                price = 50;
+                price = 50.00;
                 break;
 
             case 3:
                 itemName = "Chicken";
-                price = 120;
+                price = 120.00;
                 break;
 
             case 4:
                 itemName = "Spaghetti";
-                price = 75;
+                price = 75.00;
                 break;
 
             case 5:
                 itemName = "Soda";
-                price = 40;
+                price = 40.00;
                 break;
 
             default:
@@ -128,16 +138,33 @@ public class FastFood_Menu {
                 return;
         }
 
+        System.out.print("Enter quantity: ");
+
+        if (!scanner.hasNextInt()) {
+            System.out.println("Invalid quantity.");
+            scanner.nextLine();
+            return;
+        }
+
+        int quantity = scanner.nextInt();
+
+        if (quantity <= 0) {
+            System.out.println("Quantity must be greater than zero.");
+            return;
+        }
+
         order.addItem(itemName, price, quantity);
 
-        System.out.println(quantity + "x " + itemName + " added to your order.");
+        System.out.println(
+                quantity + "x " + itemName + " added to your order."
+        );
     }
 
     public void displayReceipt() {
 
         System.out.println("\n========== RECEIPT ==========");
 
-        if (customerName.equals("")) {
+        if (customerName == null || customerName.trim().isEmpty()) {
             System.out.println("Customer: Guest");
         } else {
             System.out.println("Customer: " + customerName);
@@ -162,8 +189,8 @@ public class FastFood_Menu {
 
         if (subtotal >= 500) {
             return subtotal * 0.10;
-        } else {
-            return 0;
         }
+
+        return 0;
     }
 }
