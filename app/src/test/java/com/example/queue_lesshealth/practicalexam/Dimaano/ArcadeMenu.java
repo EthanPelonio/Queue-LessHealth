@@ -2,47 +2,7 @@ package com.example.queue_lesshealth.practicalexam.Dimaano;
 
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
-
-public class Main {
-
-    public static void main(String[] args) {
-
-        StringBuilder automatedInput = new StringBuilder();
-
-        System.out.println("--- GENERATING ARCADE TEST DATA ---");
-
-        // Step 1: Buy tokens option
-        automatedInput.append("1\n");
-
-        // Step 2: Test low ticket count for prize (< 500)
-        automatedInput.append("2\n");
-        automatedInput.append("200\n");
-
-        // Step 3: Test high ticket count for prize (>= 500)
-        automatedInput.append("2\n");
-        automatedInput.append("600\n");
-
-        // Step 4: Exit system
-        automatedInput.append("3\n");
-
-        System.out.println("--- TEST DATA GENERATION COMPLETE ---");
-        System.out.println();
-
-        ByteArrayInputStream inputStream =
-                new ByteArrayInputStream(
-                        automatedInput.toString().getBytes()
-                );
-
-        Scanner scanner = new Scanner(inputStream);
-
-        ArcadeMenu arcadeSystem = new ArcadeMenu();
-        arcadeSystem.start(scanner);
-
-        scanner.close();
-    }
-}
-
-class ArcadeMenu {
+public class ArcadeMenu {
 
     private int tokenCount;
     private int ticketCount;
@@ -138,6 +98,6 @@ class ArcadeMenu {
         System.out.println("=================================");
         System.out.println("     THANK YOU FOR PLAYING!");
         System.out.println("=================================");
-    }
 
+    }
 }

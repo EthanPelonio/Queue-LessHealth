@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Booking Form {
+public class BookingForm {
 
     // =========================
     // PATIENT CLASS
