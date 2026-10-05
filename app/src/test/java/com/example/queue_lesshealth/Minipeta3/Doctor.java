@@ -32,3 +32,22 @@ public class Main {
 
         System.out.print("Enter Consultation Schedule: ");
         String schedule = scanner.nextLine();
+
+        System.out.println();
+        System.out.println("=================================");
+        System.out.println("        DOCTOR INFORMATION");
+        System.out.println("=================================");
+        System.out.println("Doctor's Name      : " + doctorName);
+        System.out.println("Specialization     : " + specialization);
+        System.out.println("Age                : " + age);
+        System.out.println("License Number     : " + licenseNumber);
+        System.out.println("Contact Number     : " + contactNumber);
+        System.out.println("Hospital/Clinic    : " + hospital);
+        System.out.println("Schedule           : " + schedule);
+        System.out.println("=================================");
+        System.out.println("Doctor information saved!");
+        System.out.println("=================================");
+
+        scanner.close();
+    }
+}
