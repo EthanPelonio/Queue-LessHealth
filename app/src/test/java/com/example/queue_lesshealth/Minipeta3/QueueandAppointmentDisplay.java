@@ -1,3 +1,6 @@
+package com.example.queue_lesshealth.Minipeta3;
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

@@ -1,10 +1,13 @@
+package com.example.queue_lesshealth.Minipeta3;
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Register {
 
-    public static User registerUser(
-            ArrayList<User> users) {
+    public static MainMenu.User registerUser(
+            ArrayList<MainMenu.User> users) {
 
         Scanner sc = new Scanner(System.in);
 
@@ -18,7 +21,7 @@ public class Register {
         System.out.print("Username: ");
         String username = sc.nextLine();
 
-        for (User user : users) {
+        for (MainMenu.User user : users) {
 
             if (user.username.equalsIgnoreCase(username)) {
 
@@ -39,7 +42,7 @@ public class Register {
         System.out.print("Contact Number: ");
         String contact = sc.nextLine();
 
-        User newUser = new User(
+        MainMenu.User newUser = new MainMenu.User(
                 name,
                 username,
                 password,
