@@ -25,3 +25,17 @@ public class Main {
             this.specialty = specialty;
         }
     }
+
+    // =========================
+    // APPOINTMENT CLASS
+    // =========================
+    static class Appointment {
+        String id;
+        Patient patient;
+        Doctor doctor;
+        String date;
+        String time;
+        String reason;
+        int queueNumber;
+        String status;
+    }
