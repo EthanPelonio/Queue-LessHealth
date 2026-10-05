@@ -134,9 +134,3 @@ class ArcadeMenu {
 
     public void exitSystem() {
 
-        System.out.println();
-        System.out.println("=================================");
-        System.out.println("     THANK YOU FOR PLAYING!");
-        System.out.println("=================================");
-    }
-}
