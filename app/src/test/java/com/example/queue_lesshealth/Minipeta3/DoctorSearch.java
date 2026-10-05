@@ -2,7 +2,7 @@ package com.example.queue_lesshealth.Minipeta3;
 
 import java.util.*;
 
-public class DoctorSearch {
+public class DoctorSearch {//dwa
 
     public static void main(String[] args) {
 
