@@ -13,3 +13,6 @@ public class Main {
 
         System.out.print("Enter Doctor's Name: ");
         String doctorName = scanner.nextLine();
+
+        System.out.print("Enter Specialization: ");
+        String specialization = scanner.nextLine();
