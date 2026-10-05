@@ -23,3 +23,6 @@ public class Main {
 
         System.out.print("Enter License Number: ");
         String licenseNumber = scanner.nextLine();
+
+        System.out.print("Enter Contact Number: ");
+        String contactNumber = scanner.nextLine();
