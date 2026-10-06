@@ -254,7 +254,7 @@ public class MainMenu {
                     break;
                 case 3:
                     bookAppointment();
-                    break;a
+                    break;
                 case 4:
                     viewMyAppointments();
                     break;
