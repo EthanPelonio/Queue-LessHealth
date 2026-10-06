@@ -5,26 +5,16 @@ import java.util.Scanner;
 
 public class FastFood_Menu {
 
-    // =========================
-    // CUSTOMER AND ORDER DATA
-    // =========================
-
     private String customerName;
     private final Order order;
 
-    // =========================
-    // CONSTRUCTOR
-    // =========================
-
+    // Constructor
     public FastFood_Menu() {
         customerName = "Guest";
         order = new Order();
     }
 
-    // =========================
-    // MAIN MENU
-    // =========================
-
+    // Main menu
     public void run(Scanner scanner) {
 
         int choice = 0;
@@ -43,7 +33,6 @@ public class FastFood_Menu {
             System.out.println("=================================");
             System.out.print("Enter choice: ");
 
-            // Check if input is an integer
             if (!scanner.hasNextInt()) {
                 System.out.println("Invalid input. Please enter a number.");
                 scanner.nextLine();
@@ -83,16 +72,12 @@ public class FastFood_Menu {
         }
     }
 
-    // =========================
-    // REGISTER CUSTOMER
-    // =========================
-
+    // Register customer
     public void registerCustomer(Scanner scanner) {
 
         System.out.println();
         System.out.println("===== CUSTOMER REGISTRATION =====");
 
-        // Clear leftover newline
         scanner.nextLine();
 
         System.out.print("Enter customer name: ");
@@ -108,10 +93,7 @@ public class FastFood_Menu {
         System.out.println("Customer: " + customerName);
     }
 
-    // =========================
-    // DISPLAY MENU
-    // =========================
-
+    // Display menu
     public void displayMenu() {
 
         System.out.println();
@@ -120,14 +102,11 @@ public class FastFood_Menu {
         System.out.println("2. Fries        - PHP 50.00");
         System.out.println("3. Chicken      - PHP 120.00");
         System.out.println("4. Spaghetti    - PHP 75.00");
-        System.out.println("5. Soda          - PHP 40.00");
+        System.out.println("5. Soda         - PHP 40.00");
         System.out.println("====================================");
     }
 
-    // =========================
-    // ADD ORDER
-    // =========================
-
+    // Add order
     public void addOrder(Scanner scanner) {
 
         displayMenu();
@@ -192,18 +171,16 @@ public class FastFood_Menu {
             return;
         }
 
-        // Add item to order
         order.addItem(itemName, price, quantity);
 
         System.out.println();
-        System.out.println(quantity + "x " + itemName
-                + " added to your order successfully!");
+        System.out.println(
+                quantity + "x " + itemName +
+                        " added to your order successfully!"
+        );
     }
 
-    // =========================
-    // DISPLAY RECEIPT
-    // =========================
-
+    // Display receipt
     public void displayReceipt() {
 
         System.out.println();
@@ -212,16 +189,17 @@ public class FastFood_Menu {
         System.out.println("=================================");
 
         System.out.println("Customer: " + customerName);
-
         System.out.println("---------------------------------");
 
         if (order.isEmpty()) {
+
             System.out.println("No items in the order.");
             System.out.println("---------------------------------");
             System.out.println("Subtotal: PHP 0.00");
             System.out.println("Discount: PHP 0.00");
             System.out.println("TOTAL:    PHP 0.00");
             System.out.println("=================================");
+
             return;
         }
 
@@ -238,10 +216,7 @@ public class FastFood_Menu {
         System.out.println("=================================");
     }
 
-    // =========================
-    // CALCULATE DISCOUNT
-    // =========================
-
+    // Calculate discount
     public double calculateDiscount(double subtotal) {
 
         // 10% discount if subtotal is PHP 500 or more
@@ -264,23 +239,22 @@ public class FastFood_Menu {
             items = new ArrayList<>();
         }
 
-        // Add item to order
+        // Add item
         public void addItem(String itemName, double price, int quantity) {
 
-            // Check if item already exists
             for (OrderItem item : items) {
 
                 if (item.getItemName().equalsIgnoreCase(itemName)) {
 
-                    item.setQuantity(
-                            item.getQuantity() + quantity
-                    );
+                    int newQuantity =
+                            item.getQuantity() + quantity;
+
+                    item.setQuantity(newQuantity);
 
                     return;
                 }
             }
 
-            // Add new item
             items.add(
                     new OrderItem(itemName, price, quantity)
             );
@@ -293,14 +267,14 @@ public class FastFood_Menu {
 
             for (OrderItem item : items) {
 
-                subtotal += item.getPrice()
-                        * item.getQuantity();
+                subtotal +=
+                        item.getPrice() * item.getQuantity();
             }
 
             return subtotal;
         }
 
-        // Display all ordered items
+        // Display items
         public void displayItems() {
 
             if (items.isEmpty()) {
@@ -323,7 +297,7 @@ public class FastFood_Menu {
             }
         }
 
-        // Check if order is empty
+        // Check if empty
         public boolean isEmpty() {
             return items.isEmpty();
         }

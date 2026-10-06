@@ -3,27 +3,17 @@ package com.example.queue_lesshealth.Minipeta3;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+public class MainMenu {
 
- class MainMenu {
+    private static final Scanner sc = new Scanner(System.in);
 
-    static Scanner sc = new Scanner(System.in);
+    private static final ArrayList<User> users = new ArrayList<>();
+    private static final ArrayList<Doctor> doctors = new ArrayList<>();
+    private static final ArrayList<Appointment> appointments = new ArrayList<>();
 
-    // =========================================================
-    // DATA STORAGE
-    // =========================================================
-
-    static ArrayList<User> users = new ArrayList<>();
-    static ArrayList<Doctor> doctors = new ArrayList<>();
-    static ArrayList<Appointment> appointments = new ArrayList<>();
-
-    static User currentUser = null;
-
-    // =========================================================
-    // MAIN PROGRAM
-    // =========================================================
+    private static User currentUser = null;
 
     public static void main(String[] args) {
-
         initializeDoctors();
         initializeDemoUser();
 
@@ -38,16 +28,10 @@ import java.util.Scanner;
         sc.close();
     }
 
-    // =========================================================
-    // MAIN MENU
-    // =========================================================
-
-    static void mainMenu() {
-
+    public static void mainMenu() {
         int choice;
 
         do {
-
             System.out.println("\n==============================================");
             System.out.println("                  MAIN MENU");
             System.out.println("==============================================");
@@ -74,61 +58,43 @@ import java.util.Scanner;
             choice = getInt("Enter your choice: ");
 
             switch (choice) {
-
                 case 1:
                     register();
                     break;
-
                 case 2:
                     login();
                     break;
-
                 case 3:
                     doctorSearch();
                     break;
-
                 case 4:
                     patientDashboard();
                     break;
-
                 case 5:
                     bookAppointment();
                     break;
-
                 case 6:
                     appointmentRequest();
                     break;
-
                 case 7:
                     appointmentConfirmation();
                     break;
-
                 case 8:
                     queueAndAppointmentDisplay();
                     break;
-
                 case 9:
                     logout();
                     break;
-
                 case 0:
                     System.out.println("\nExiting system...");
                     break;
-
                 default:
-                    System.out.println("\nInvalid choice.");
-                    System.out.println("Please select a valid menu option.");
+                    System.out.println("\nInvalid choice. Please select a valid menu option.");
             }
-
         } while (choice != 0);
     }
 
-    // =========================================================
-    // REGISTER
-    // =========================================================
-
-    static void register() {
-
+    public static void register() {
         System.out.println("\n==============================================");
         System.out.println("                 REGISTER");
         System.out.println("==============================================");
@@ -147,20 +113,12 @@ import java.util.Scanner;
         System.out.print("Enter password: ");
         String password = sc.nextLine();
 
-        System.out.print("Enter age: ");
-        int age = getInt("");
+        int age = getInt("Enter age: ");
 
         System.out.print("Enter contact number: ");
         String contact = sc.nextLine();
 
-        User newUser = new User(
-                name,
-                username,
-                password,
-                age,
-                contact
-        );
-
+        User newUser = new User(name, username, password, age, contact);
         users.add(newUser);
 
         System.out.println("\n==============================================");
@@ -174,19 +132,13 @@ import java.util.Scanner;
         System.out.println("You may now log in.");
     }
 
-    // =========================================================
-    // LOGIN
-    // =========================================================
-
-    static void login() {
-
+    public static void login() {
         System.out.println("\n==============================================");
         System.out.println("                    LOGIN");
         System.out.println("==============================================");
 
         if (currentUser != null) {
-            System.out.println("You are already logged in as "
-                    + currentUser.name + ".");
+            System.out.println("You are already logged in as " + currentUser.name + ".");
             return;
         }
 
@@ -199,26 +151,17 @@ import java.util.Scanner;
         User user = findUser(username);
 
         if (user != null && user.password.equals(password)) {
-
             currentUser = user;
-
             System.out.println("\n==============================================");
             System.out.println("              LOGIN SUCCESSFUL");
             System.out.println("==============================================");
             System.out.println("Welcome, " + currentUser.name + "!");
-
         } else {
-
             System.out.println("\nInvalid username or password.");
         }
     }
 
-    // =========================================================
-    // LOGOUT
-    // =========================================================
-
-    static void logout() {
-
+    public static void logout() {
         if (currentUser == null) {
             System.out.println("\nNo user is currently logged in.");
             return;
@@ -226,20 +169,13 @@ import java.util.Scanner;
 
         System.out.println("\nGoodbye, " + currentUser.name + "!");
         currentUser = null;
-
         System.out.println("You have been logged out.");
     }
 
-    // =========================================================
-    // DOCTOR SEARCH
-    // =========================================================
-
-    static void doctorSearch() {
-
+    public static void doctorSearch() {
         System.out.println("\n==============================================");
         System.out.println("                DOCTOR SEARCH");
         System.out.println("==============================================");
-
         System.out.println("[1] View All Doctors");
         System.out.println("[2] Search by Specialty");
         System.out.println("[3] Search by Doctor Name");
@@ -248,23 +184,16 @@ import java.util.Scanner;
         int choice = getInt("Choose an option: ");
 
         if (choice == 1) {
-
             displayAllDoctors();
-
         } else if (choice == 2) {
-
             System.out.print("\nEnter specialty: ");
             String specialty = sc.nextLine();
 
             boolean found = false;
-
             System.out.println("\n--- SEARCH RESULTS ---");
 
             for (Doctor doctor : doctors) {
-
-                if (doctor.specialty.toLowerCase()
-                        .contains(specialty.toLowerCase())) {
-
+                if (doctor.specialty.toLowerCase().contains(specialty.toLowerCase())) {
                     displayDoctor(doctor);
                     found = true;
                 }
@@ -273,21 +202,15 @@ import java.util.Scanner;
             if (!found) {
                 System.out.println("No doctors found for that specialty.");
             }
-
         } else if (choice == 3) {
-
             System.out.print("\nEnter doctor name: ");
             String name = sc.nextLine();
 
             boolean found = false;
-
             System.out.println("\n--- SEARCH RESULTS ---");
 
             for (Doctor doctor : doctors) {
-
-                if (doctor.name.toLowerCase()
-                        .contains(name.toLowerCase())) {
-
+                if (doctor.name.toLowerCase().contains(name.toLowerCase())) {
                     displayDoctor(doctor);
                     found = true;
                 }
@@ -296,37 +219,22 @@ import java.util.Scanner;
             if (!found) {
                 System.out.println("No doctor found.");
             }
-
-        } else if (choice == 0) {
-
-            return;
-
-        } else {
-
+        } else if (choice != 0) {
             System.out.println("Invalid choice.");
         }
     }
 
-    // =========================================================
-    // PATIENT DASHBOARD
-    // =========================================================
-
-    static void patientDashboard() {
-
-        if (!requireLogin()) {
-            return;
-        }
+    public static void patientDashboard() {
+        if (!requireLogin()) return;
 
         int choice;
 
         do {
-
             System.out.println("\n==============================================");
             System.out.println("             PATIENT DASHBOARD");
             System.out.println("==============================================");
             System.out.println("Welcome, " + currentUser.name + "!");
             System.out.println("----------------------------------------------");
-
             System.out.println("[1] View Profile");
             System.out.println("[2] Doctor Search");
             System.out.println("[3] Book Appointment");
@@ -338,73 +246,48 @@ import java.util.Scanner;
             choice = getInt("Enter your choice: ");
 
             switch (choice) {
-
                 case 1:
                     viewProfile();
                     break;
-
                 case 2:
                     doctorSearch();
                     break;
-
                 case 3:
                     bookAppointment();
-                    break;
-
+                    break;a
                 case 4:
                     viewMyAppointments();
                     break;
-
                 case 5:
                     appointmentRequest();
                     break;
-
                 case 6:
                     queueAndAppointmentDisplay();
                     break;
-
                 case 0:
                     System.out.println("Returning to Main Menu...");
                     break;
-
                 default:
                     System.out.println("Invalid choice.");
             }
-
         } while (choice != 0);
     }
 
-    // =========================================================
-    // VIEW PROFILE
-    // =========================================================
-
-    static void viewProfile() {
-
-        if (!requireLogin()) {
-            return;
-        }
+    public static void viewProfile() {
+        if (!requireLogin()) return;
 
         System.out.println("\n==============================================");
         System.out.println("                MY PROFILE");
         System.out.println("==============================================");
-
         System.out.println("Full Name : " + currentUser.name);
         System.out.println("Username  : " + currentUser.username);
         System.out.println("Age       : " + currentUser.age);
         System.out.println("Contact   : " + currentUser.contact);
-
         System.out.println("==============================================");
     }
 
-    // =========================================================
-    // BOOK APPOINTMENT
-    // =========================================================
-
-    static void bookAppointment() {
-
-        if (!requireLogin()) {
-            return;
-        }
+    public static void bookAppointment() {
+        if (!requireLogin()) return;
 
         System.out.println("\n==============================================");
         System.out.println("             BOOK APPOINTMENT");
@@ -413,11 +296,9 @@ import java.util.Scanner;
         displayAllDoctors();
 
         int doctorNumber = getInt("\nEnter Doctor ID: ");
-
         Doctor selectedDoctor = findDoctorById(doctorNumber);
 
         if (selectedDoctor == null) {
-
             System.out.println("\nDoctor not found.");
             return;
         }
@@ -451,7 +332,6 @@ import java.util.Scanner;
         System.out.println("\n==============================================");
         System.out.println("       APPOINTMENT BOOKING SUCCESSFUL");
         System.out.println("==============================================");
-
         System.out.println("Appointment ID : " + appointment.id);
         System.out.println("Patient        : " + currentUser.name);
         System.out.println("Doctor         : " + selectedDoctor.name);
@@ -461,44 +341,29 @@ import java.util.Scanner;
         System.out.println("Reason         : " + reason);
         System.out.println("Queue Number   : " + queueNumber);
         System.out.println("Status         : PENDING");
-
         System.out.println("==============================================");
     }
 
-    // =========================================================
-    // APPOINTMENT REQUEST
-    // =========================================================
-
-    static void appointmentRequest() {
-
-        if (!requireLogin()) {
-            return;
-        }
+    public static void appointmentRequest() {
+        if (!requireLogin()) return;
 
         System.out.println("\n==============================================");
         System.out.println("            APPOINTMENT REQUEST");
         System.out.println("==============================================");
 
-        ArrayList<Appointment> myAppointments =
-                getUserAppointments();
+        ArrayList<Appointment> myAppointments = getUserAppointments();
 
         if (myAppointments.isEmpty()) {
-
             System.out.println("You do not have any appointments.");
             return;
         }
 
         displayUserAppointments();
 
-        int appointmentId =
-                getInt("\nEnter Appointment ID: ");
+        int appointmentId = getInt("\nEnter Appointment ID: ");
+        Appointment appointment = findAppointmentById(appointmentId);
 
-        Appointment appointment =
-                findAppointmentById(appointmentId);
-
-        if (appointment == null ||
-                appointment.patient != currentUser) {
-
+        if (appointment == null || appointment.patient != currentUser) {
             System.out.println("\nAppointment not found.");
             return;
         }
@@ -515,70 +380,46 @@ import java.util.Scanner;
         int choice = getInt("Choose an option: ");
 
         switch (choice) {
-
             case 1:
-
                 appointment.status = "CONFIRMED";
-
                 System.out.println("\nAppointment request approved.");
                 System.out.println("Status: CONFIRMED");
-
                 break;
-
             case 2:
-
                 appointment.status = "CANCELLED";
-
                 System.out.println("\nAppointment cancelled.");
                 System.out.println("Status: CANCELLED");
-
                 break;
-
             case 3:
-
                 System.out.print("\nEnter new date: ");
-                String newDate = sc.nextLine();
+                appointment.date = sc.nextLine();
 
                 System.out.print("Enter new time: ");
-                String newTime = sc.nextLine();
+                appointment.time = sc.nextLine();
 
-                appointment.date = newDate;
-                appointment.time = newTime;
                 appointment.status = "RESCHEDULED";
 
                 System.out.println("\nReschedule request submitted.");
-                System.out.println("New Date: " + newDate);
-                System.out.println("New Time: " + newTime);
-
+                System.out.println("New Date: " + appointment.date);
+                System.out.println("New Time: " + appointment.time);
                 break;
-
             case 0:
                 break;
-
             default:
                 System.out.println("Invalid option.");
         }
     }
 
-    // =========================================================
-    // APPOINTMENT CONFIRMATION
-    // =========================================================
-
-    static void appointmentConfirmation() {
-
-        if (!requireLogin()) {
-            return;
-        }
+    public static void appointmentConfirmation() {
+        if (!requireLogin()) return;
 
         System.out.println("\n==============================================");
         System.out.println("         APPOINTMENT CONFIRMATION");
         System.out.println("==============================================");
 
-        ArrayList<Appointment> myAppointments =
-                getUserAppointments();
+        ArrayList<Appointment> myAppointments = getUserAppointments();
 
         if (myAppointments.isEmpty()) {
-
             System.out.println("You have no appointments.");
             return;
         }
@@ -586,12 +427,9 @@ import java.util.Scanner;
         displayUserAppointments();
 
         int id = getInt("\nEnter Appointment ID: ");
-
         Appointment appointment = findAppointmentById(id);
 
-        if (appointment == null ||
-                appointment.patient != currentUser) {
-
+        if (appointment == null || appointment.patient != currentUser) {
             System.out.println("Appointment not found.");
             return;
         }
@@ -601,73 +439,47 @@ import java.util.Scanner;
         System.out.println("==============================================");
 
         displayAppointment(appointment);
-
         System.out.println("----------------------------------------------");
 
         if (appointment.status.equals("CANCELLED")) {
-
             System.out.println("This appointment has been cancelled.");
-
         } else {
-
             appointment.status = "CONFIRMED";
-
             System.out.println("Appointment confirmed successfully.");
             System.out.println("Please arrive on time.");
-
         }
 
         System.out.println("==============================================");
     }
 
-    // =========================================================
-    // QUEUE & APPOINTMENT DISPLAY
-    // =========================================================
-
-    static void queueAndAppointmentDisplay() {
-
-        if (!requireLogin()) {
-            return;
-        }
+    public static void queueAndAppointmentDisplay() {
+        if (!requireLogin()) return;
 
         System.out.println("\n==============================================");
         System.out.println("        QUEUE & APPOINTMENT DISPLAY");
         System.out.println("==============================================");
 
-        ArrayList<Appointment> myAppointments =
-                getUserAppointments();
+        ArrayList<Appointment> myAppointments = getUserAppointments();
 
         if (myAppointments.isEmpty()) {
-
             System.out.println("You have no appointments.");
             return;
         }
 
         for (Appointment appointment : myAppointments) {
-
             displayAppointment(appointment);
 
             int currentlyServing = 1;
+            int patientsAhead = appointment.queueNumber - currentlyServing;
 
-            int patientsAhead =
-                    appointment.queueNumber - currentlyServing;
+            if (patientsAhead < 0) patientsAhead = 0;
 
-            if (patientsAhead < 0) {
-                patientsAhead = 0;
-            }
-
-            System.out.println("Currently Serving : Queue #"
-                    + currentlyServing);
-
-            System.out.println("Patients Ahead    : "
-                    + patientsAhead);
+            System.out.println("Currently Serving : Queue #" + currentlyServing);
+            System.out.println("Patients Ahead    : " + patientsAhead);
 
             if (appointment.queueNumber == currentlyServing) {
-
                 System.out.println("Queue Status      : YOUR TURN");
-
             } else {
-
                 System.out.println("Queue Status      : WAITING");
             }
 
@@ -675,25 +487,16 @@ import java.util.Scanner;
         }
     }
 
-    // =========================================================
-    // MY APPOINTMENTS
-    // =========================================================
-
-    static void viewMyAppointments() {
-
-        if (!requireLogin()) {
-            return;
-        }
+    public static void viewMyAppointments() {
+        if (!requireLogin()) return;
 
         System.out.println("\n==============================================");
         System.out.println("             MY APPOINTMENTS");
         System.out.println("==============================================");
 
-        ArrayList<Appointment> myAppointments =
-                getUserAppointments();
+        ArrayList<Appointment> myAppointments = getUserAppointments();
 
         if (myAppointments.isEmpty()) {
-
             System.out.println("You currently have no appointments.");
             return;
         }
@@ -704,12 +507,7 @@ import java.util.Scanner;
         }
     }
 
-    // =========================================================
-    // DISPLAY FUNCTIONS
-    // =========================================================
-
-    static void displayAllDoctors() {
-
+    public static void displayAllDoctors() {
         System.out.println("\n----------------------------------------------");
         System.out.println("              AVAILABLE DOCTORS");
         System.out.println("----------------------------------------------");
@@ -721,8 +519,7 @@ import java.util.Scanner;
         System.out.println("----------------------------------------------");
     }
 
-    static void displayDoctor(Doctor doctor) {
-
+    public static void displayDoctor(Doctor doctor) {
         System.out.println(
                 "ID: " + doctor.id +
                         " | " + doctor.name +
@@ -731,8 +528,7 @@ import java.util.Scanner;
         );
     }
 
-    static void displayAppointment(Appointment appointment) {
-
+    public static void displayAppointment(Appointment appointment) {
         System.out.println("Appointment ID : " + appointment.id);
         System.out.println("Doctor        : " + appointment.doctor.name);
         System.out.println("Specialty     : " + appointment.doctor.specialty);
@@ -743,12 +539,9 @@ import java.util.Scanner;
         System.out.println("Status        : " + appointment.status);
     }
 
-    static void displayUserAppointments() {
-
+    public static void displayUserAppointments() {
         for (Appointment appointment : appointments) {
-
             if (appointment.patient == currentUser) {
-
                 System.out.println("----------------------------------------------");
                 System.out.println(
                         "ID #" + appointment.id +
@@ -761,57 +554,41 @@ import java.util.Scanner;
         }
     }
 
-    // =========================================================
-    // SEARCH / FIND FUNCTIONS
-    // =========================================================
-
-    static User findUser(String username) {
-
+    public static User findUser(String username) {
         for (User user : users) {
-
             if (user.username.equalsIgnoreCase(username)) {
                 return user;
             }
         }
-
         return null;
     }
 
-    static Doctor findDoctorById(int id) {
-
+    public static Doctor findDoctorById(int id) {
         for (Doctor doctor : doctors) {
-
             if (doctor.id == id) {
                 return doctor;
             }
         }
-
         return null;
     }
 
-    static Appointment findAppointmentById(int id) {
-
+    public static Appointment findAppointmentById(int id) {
         for (Appointment appointment : appointments) {
-
             if (appointment.id == id) {
                 return appointment;
             }
         }
-
         return null;
     }
 
-    static ArrayList<Appointment> getUserAppointments() {
-
-        ArrayList<Appointment> result =
-                new ArrayList<>();
+    public static ArrayList<Appointment> getUserAppointments() {
+        ArrayList<Appointment> result = new ArrayList<>();
 
         if (currentUser == null) {
             return result;
         }
 
         for (Appointment appointment : appointments) {
-
             if (appointment.patient == currentUser) {
                 result.add(appointment);
             }
@@ -820,144 +597,90 @@ import java.util.Scanner;
         return result;
     }
 
-    // =========================================================
-    // QUEUE NUMBER
-    // =========================================================
-
-    static int calculateQueueNumber() {
-
+    public static int calculateQueueNumber() {
         return appointments.size() + 1;
     }
 
-    // =========================================================
-    // LOGIN REQUIREMENT
-    // =========================================================
-
-    static boolean requireLogin() {
-
+    public static boolean requireLogin() {
         if (currentUser == null) {
-
             System.out.println("\nYou must log in first.");
             System.out.println("Please select Login from the Main Menu.");
-
             return false;
         }
-
         return true;
     }
 
-    // =========================================================
-    // INPUT HANDLING
-    // =========================================================
-
-    static int getInt(String message) {
-
+    public static int getInt(String message) {
         while (true) {
-
             System.out.print(message);
 
             try {
-
-                int number = Integer.parseInt(sc.nextLine());
-
-                return number;
-
+                return Integer.parseInt(sc.nextLine().trim());
             } catch (NumberFormatException e) {
-
                 System.out.println("Please enter a valid number.");
             }
         }
     }
 
-    // =========================================================
-    // INITIAL DATA
-    // =========================================================
+    public static void initializeDoctors() {
+        doctors.clear();
 
-    static void initializeDoctors() {
+        doctors.add(new Doctor(
+                1,
+                "Dr. Maria Santos",
+                "Cardiologist",
+                "Monday - Friday, 9:00 AM - 3:00 PM"
+        ));
 
-        doctors.add(
-                new Doctor(
-                        1,
-                        "Dr. Maria Santos",
-                        "Cardiologist",
-                        "Monday - Friday, 9:00 AM - 3:00 PM"
-                )
-        );
+        doctors.add(new Doctor(
+                2,
+                "Dr. John Reyes",
+                "Pediatrician",
+                "Monday - Friday, 10:00 AM - 4:00 PM"
+        ));
 
-        doctors.add(
-                new Doctor(
-                        2,
-                        "Dr. John Reyes",
-                        "Pediatrician",
-                        "Monday - Friday, 10:00 AM - 4:00 PM"
-                )
-        );
+        doctors.add(new Doctor(
+                3,
+                "Dr. Angela Cruz",
+                "Dermatologist",
+                "Tuesday - Saturday, 9:00 AM - 2:00 PM"
+        ));
 
-        doctors.add(
-                new Doctor(
-                        3,
-                        "Dr. Angela Cruz",
-                        "Dermatologist",
-                        "Tuesday - Saturday, 9:00 AM - 2:00 PM"
-                )
-        );
+        doctors.add(new Doctor(
+                4,
+                "Dr. Daniel Garcia",
+                "General Physician",
+                "Monday - Saturday, 8:00 AM - 5:00 PM"
+        ));
 
-        doctors.add(
-                new Doctor(
-                        4,
-                        "Dr. Daniel Garcia",
-                        "General Physician",
-                        "Monday - Saturday, 8:00 AM - 5:00 PM"
-                )
-        );
-
-        doctors.add(
-                new Doctor(
-                        5,
-                        "Dr. Sophia Mendoza",
-                        "Neurologist",
-                        "Monday - Friday, 1:00 PM - 5:00 PM"
-                )
-        );
+        doctors.add(new Doctor(
+                5,
+                "Dr. Sophia Mendoza",
+                "Neurologist",
+                "Monday - Friday, 1:00 PM - 5:00 PM"
+        ));
     }
 
-    // =========================================================
-    // DEMO ACCOUNT
-    // =========================================================
+    public static void initializeDemoUser() {
+        users.clear();
 
-    static void initializeDemoUser() {
-
-        users.add(
-                new User(
-                        "Juan Dela Cruz",
-                        "juan",
-                        "12345",
-                        17,
-                        "09123456789"
-                )
-        );
+        users.add(new User(
+                "Juan Dela Cruz",
+                "juan",
+                "12345",
+                17,
+                "09123456789"
+        ));
     }
 
-    // =========================================================
-    // USER CLASS
-    // =========================================================
+    public static class User {
+        public String name;
+        public String username;
+        public String password;
+        public int age;
+        public String contact;
 
-    static class User {
-
-        String name;
-        String username;
-        String password;
-        int age;
-        String contact;
-
-        User(
-                String name,
-                String username,
-                String password,
-                int age,
-                String contact
-        ) {
-
+        public User(String name, String username, String password, int age, String contact) {
             this.name = name;
             this.username = username;
             this.password = password;
@@ -966,24 +689,13 @@ import java.util.Scanner;
         }
     }
 
-    // =========================================================
-    // DOCTOR CLASS
-    // =========================================================
+    public static class Doctor {
+        public int id;
+        public String name;
+        public String specialty;
+        public String schedule;
 
-    static class Doctor {
-
-        int id;
-        String name;
-        String specialty;
-        String schedule;
-
-        Doctor(
-                int id,
-                String name,
-                String specialty,
-                String schedule
-        ) {
-
+        public Doctor(int id, String name, String specialty, String schedule) {
             this.id = id;
             this.name = name;
             this.specialty = specialty;
@@ -991,24 +703,19 @@ import java.util.Scanner;
         }
     }
 
-    // =========================================================
-    // APPOINTMENT CLASS
-    // =========================================================
+    public static class Appointment {
+        private static int nextId = 1001;
 
-    static class Appointment {
+        public int id;
+        public User patient;
+        public Doctor doctor;
+        public String date;
+        public String time;
+        public String reason;
+        public int queueNumber;
+        public String status;
 
-        static int nextId = 1001;
-
-        int id;
-        User patient;
-        Doctor doctor;
-        String date;
-        String time;
-        String reason;
-        int queueNumber;
-        String status;
-
-        Appointment(
+        public Appointment(
                 User patient,
                 Doctor doctor,
                 String date,
@@ -1017,7 +724,6 @@ import java.util.Scanner;
                 int queueNumber,
                 String status
         ) {
-
             this.id = nextId++;
             this.patient = patient;
             this.doctor = doctor;
