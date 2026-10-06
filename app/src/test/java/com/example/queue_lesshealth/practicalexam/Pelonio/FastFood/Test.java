@@ -24,4 +24,3 @@ public class FastFoodTest {
         Scanner scanner = new Scanner(inputStream);
     }
 }
-}
