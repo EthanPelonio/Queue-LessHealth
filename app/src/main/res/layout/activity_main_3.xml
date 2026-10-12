@@ -23,7 +23,55 @@
         android:layout_height="112dp"
         app:srcCompat="@android:drawable/button_onoff_indicator_off"
         tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="-8dp" />
+        tools:layout_editor_absoluteY="-7dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView12"
+        android:layout_width="280dp"
+        android:layout_height="119dp"
+        app:srcCompat="@android:drawable/button_onoff_indicator_off"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="191dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView13"
+        android:layout_width="280dp"
+        android:layout_height="119dp"
+        app:srcCompat="@android:drawable/button_onoff_indicator_off"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView14"
+        android:layout_width="280dp"
+        android:layout_height="119dp"
+        app:srcCompat="@android:drawable/button_onoff_indicator_off"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="306dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView15"
+        android:layout_width="280dp"
+        android:layout_height="119dp"
+        app:srcCompat="@android:drawable/button_onoff_indicator_off"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="367dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView16"
+        android:layout_width="280dp"
+        android:layout_height="119dp"
+        app:srcCompat="@android:drawable/button_onoff_indicator_off"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="425dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView17"
+        android:layout_width="280dp"
+        android:layout_height="119dp"
+        app:srcCompat="@android:drawable/button_onoff_indicator_off"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="486dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView9"
@@ -48,5 +96,21 @@
         app:srcCompat="@android:drawable/ic_input_add"
         tools:layout_editor_absoluteX="356dp"
         tools:layout_editor_absoluteY="0dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView18"
+        android:layout_width="182dp"
+        android:layout_height="102dp"
+        app:srcCompat="@android:drawable/dialog_holo_dark_frame"
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="556dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView19"
+        android:layout_width="182dp"
+        android:layout_height="102dp"
+        app:srcCompat="@android:drawable/dialog_holo_dark_frame"
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="613dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
