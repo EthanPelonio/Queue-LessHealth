@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/copy_of_health" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView6"
+        android:layout_width="50dp"
+        android:layout_height="46dp"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView7"
+        android:layout_width="258dp"
+        android:layout_height="112dp"
+        app:srcCompat="@android:drawable/button_onoff_indicator_off"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="-8dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView9"
+        android:layout_width="152dp"
+        android:layout_height="105dp"
+        app:srcCompat="@android:drawable/presence_online"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="77dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView10"
+        android:layout_width="119dp"
+        android:layout_height="98dp"
+        app:srcCompat="@drawable/m3_split_button_chevron_avd"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="84dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView11"
+        android:layout_width="55dp"
+        android:layout_height="62dp"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:layout_editor_absoluteX="356dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
