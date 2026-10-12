@@ -9,7 +9,9 @@
         android:id="@+id/imageFilterView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/copy_of_health" />
+        app:srcCompat="@drawable/copy_of_health"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView6"
@@ -31,7 +33,7 @@
         android:layout_height="119dp"
         app:srcCompat="@android:drawable/button_onoff_indicator_off"
         tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="191dp" />
+        tools:layout_editor_absoluteY="173dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView13"
@@ -39,7 +41,7 @@
         android:layout_height="119dp"
         app:srcCompat="@android:drawable/button_onoff_indicator_off"
         tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="248dp" />
+        tools:layout_editor_absoluteY="228dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView14"
@@ -47,7 +49,7 @@
         android:layout_height="119dp"
         app:srcCompat="@android:drawable/button_onoff_indicator_off"
         tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="306dp" />
+        tools:layout_editor_absoluteY="285dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView15"
@@ -55,7 +57,7 @@
         android:layout_height="119dp"
         app:srcCompat="@android:drawable/button_onoff_indicator_off"
         tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="367dp" />
+        tools:layout_editor_absoluteY="340dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView16"
@@ -63,7 +65,7 @@
         android:layout_height="119dp"
         app:srcCompat="@android:drawable/button_onoff_indicator_off"
         tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="425dp" />
+        tools:layout_editor_absoluteY="397dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView17"
@@ -71,7 +73,7 @@
         android:layout_height="119dp"
         app:srcCompat="@android:drawable/button_onoff_indicator_off"
         tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="486dp" />
+        tools:layout_editor_absoluteY="455dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView9"
@@ -93,24 +95,24 @@
         android:id="@+id/imageFilterView11"
         android:layout_width="55dp"
         android:layout_height="62dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add"
-        tools:layout_editor_absoluteX="356dp"
         tools:layout_editor_absoluteY="0dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView18"
-        android:layout_width="182dp"
-        android:layout_height="102dp"
+        android:id="@+id/imageFilterView19"
+        android:layout_width="179dp"
+        android:layout_height="97dp"
         app:srcCompat="@android:drawable/dialog_holo_dark_frame"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="556dp" />
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="530dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView19"
-        android:layout_width="182dp"
-        android:layout_height="102dp"
+        android:id="@+id/imageFilterView20"
+        android:layout_width="179dp"
+        android:layout_height="97dp"
         app:srcCompat="@android:drawable/dialog_holo_dark_frame"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="613dp" />
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="594dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
