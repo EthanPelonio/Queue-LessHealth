@@ -3,7 +3,7 @@ package com.example.queue_lesshealth.Minipeta3;
 import java.util.Scanner;
 
 class Appointment {
-    public boolean patient;
+    public boolean patient;E
 
     public static void main(String[] args) {
 
