@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F4F7"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="←"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find a Doctor"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Search Bar -->
+
+    <!-- Doctor Specialties -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp">
+
+
+
+
+
+
+
+    </HorizontalScrollView>
+
+    <!-- Doctor List -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Doctor 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="#FFFFFF"
+                android:padding="10dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="2dp">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="95dp"
+                    android:src="@android:drawable/ic_menu_myplaces"
+                    android:scaleType="centerCrop"
+                    android:background="#D9DCE3"
+                    android:contentDescription="Doctor A Santos" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dr. A. Santos"
+                        android:textColor="#E60023"
+                        android:textStyle="bold"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="General Medicine"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Available Today"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Doctor 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="#FFFFFF"
+                android:padding="10dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="2dp">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="95dp"
+                    android:src="@android:drawable/ic_menu_myplaces"
+                    android:scaleType="centerCrop"
+                    android:background="#D9DCE3"
+                    android:contentDescription="Doctor R Cruz" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    tools:ignore="ExtraText">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dr. R. Cruz"
+                        android:textColor="#E60023"
+                        android:textStyle="bold"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Pediatrics"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Next Slot: 2:30 PM"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp" /><![CDATA[
+
+                    ]]>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Doctor 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="#FFFFFF"
+                android:padding="10dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="2dp">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="95dp"
+                    android:src="@android:drawable/ic_menu_myplaces"
+                    android:scaleType="centerCrop"
+                    android:background="#D9DCE3"
+                    android:contentDescription="Doctor L Reyes" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dr. L. Reyes"
+                        android:textColor="#E60023"
+                        android:textStyle="bold"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="OB-GYN"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Available Today"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp" />
+
+                    }}>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#F4F4F7"
+        android:gravity="center"
+        android:orientation="horizontal" />
+
+</LinearLayout>
