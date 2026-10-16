@@ -284,11 +284,11 @@
                             android:id="@+id/btnBook"
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
-                            android:text="BOOK"
-                            android:textSize="13sp"
+                            android:layout_marginTop="10dp"
                             android:backgroundTint="#1565C0"
+                            android:text="ACCEPT"
                             android:textColor="#FFFFFF"
-                            android:layout_marginTop="10dp" />
+                            android:textSize="13sp" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
