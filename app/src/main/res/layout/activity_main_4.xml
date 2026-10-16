@@ -51,7 +51,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="559dp"
+        android:layout_height="576dp"
         android:layout_weight="1"
         android:fillViewport="false">
 
