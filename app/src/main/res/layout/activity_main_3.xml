@@ -32,8 +32,8 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView6"
-        android:layout_width="50dp"
-        android:layout_height="46dp"
+        android:layout_width="45dp"
+        android:layout_height="38dp"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
@@ -253,10 +253,10 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView14"
-        android:layout_width="122dp"
-        android:layout_height="98dp"
+        android:layout_width="116dp"
+        android:layout_height="85dp"
         app:srcCompat="@drawable/firefly_removebackground"
-        tools:layout_editor_absoluteX="314dp"
+        tools:layout_editor_absoluteX="320dp"
         tools:layout_editor_absoluteY="-12dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
