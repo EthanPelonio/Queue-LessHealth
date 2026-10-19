@@ -45,14 +45,6 @@
         tools:layout_editor_absoluteY="86dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView10"
-        android:layout_width="119dp"
-        android:layout_height="98dp"
-        app:srcCompat="@drawable/m3_split_button_chevron_avd"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="93dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView19"
         android:layout_width="179dp"
         android:layout_height="97dp"
@@ -266,5 +258,13 @@
         app:srcCompat="@drawable/firefly_removebackground"
         tools:layout_editor_absoluteX="314dp"
         tools:layout_editor_absoluteY="-12dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/firefly"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
