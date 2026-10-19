@@ -139,14 +139,6 @@
         tools:layout_editor_absoluteY="297dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView4"
-        android:layout_width="365dp"
-        android:layout_height="38dp"
-        app:srcCompat="@drawable/untitled_design__2_"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="398dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView8"
         android:layout_width="365dp"
         android:layout_height="38dp"
