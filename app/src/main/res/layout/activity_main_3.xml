@@ -42,7 +42,7 @@
         android:layout_height="105dp"
         app:srcCompat="@android:drawable/presence_online"
         tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="86dp" />
+        tools:layout_editor_absoluteY="76dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView19"
@@ -261,10 +261,10 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView10"
-        android:layout_width="191dp"
-        android:layout_height="176dp"
+        android:layout_width="196dp"
+        android:layout_height="183dp"
         app:srcCompat="@drawable/firefly"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="57dp" />
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="50dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
