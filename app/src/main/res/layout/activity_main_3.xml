@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/copy_of_health"
-        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="0dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
@@ -26,54 +26,6 @@
         app:srcCompat="@android:drawable/button_onoff_indicator_off"
         tools:layout_editor_absoluteX="76dp"
         tools:layout_editor_absoluteY="-7dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView12"
-        android:layout_width="280dp"
-        android:layout_height="119dp"
-        app:srcCompat="@android:drawable/button_onoff_indicator_off"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="173dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView13"
-        android:layout_width="280dp"
-        android:layout_height="119dp"
-        app:srcCompat="@android:drawable/button_onoff_indicator_off"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="228dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView14"
-        android:layout_width="280dp"
-        android:layout_height="119dp"
-        app:srcCompat="@android:drawable/button_onoff_indicator_off"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="285dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView15"
-        android:layout_width="280dp"
-        android:layout_height="119dp"
-        app:srcCompat="@android:drawable/button_onoff_indicator_off"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="340dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView16"
-        android:layout_width="280dp"
-        android:layout_height="119dp"
-        app:srcCompat="@android:drawable/button_onoff_indicator_off"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="397dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView17"
-        android:layout_width="280dp"
-        android:layout_height="119dp"
-        app:srcCompat="@android:drawable/button_onoff_indicator_off"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="455dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView9"
@@ -132,6 +84,7 @@
         tools:layout_editor_absoluteX="124dp"
         tools:layout_editor_absoluteY="182dp" />
 
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -147,9 +100,8 @@
         android:layout_height="wrap_content"
         android:text="Doctor:"
         android:textSize="12dp"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="276dp" />
-
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="151dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -157,8 +109,8 @@
         android:layout_height="wrap_content"
         android:text="Patient:"
         android:textSize="12dp"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="331dp" />
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="135dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -166,8 +118,8 @@
         android:layout_height="wrap_content"
         android:text="Date:"
         android:textSize="12dp"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="388dp" />
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="167dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -177,6 +129,54 @@
         android:textSize="12dp"
         tools:layout_editor_absoluteX="248dp"
         tools:layout_editor_absoluteY="220dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView"
+        android:layout_width="365dp"
+        android:layout_height="38dp"
+        app:srcCompat="@drawable/untitled_design__2_"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="244dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView2"
+        android:layout_width="365dp"
+        android:layout_height="38dp"
+        app:srcCompat="@drawable/untitled_design__2_"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="297dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView3"
+        android:layout_width="365dp"
+        android:layout_height="38dp"
+        app:srcCompat="@drawable/untitled_design__2_"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="346dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView4"
+        android:layout_width="365dp"
+        android:layout_height="38dp"
+        app:srcCompat="@drawable/untitled_design__2_"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="398dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView8"
+        android:layout_width="365dp"
+        android:layout_height="38dp"
+        app:srcCompat="@drawable/untitled_design__2_"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="449dp" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView12"
+        android:layout_width="365dp"
+        android:layout_height="38dp"
+        app:srcCompat="@drawable/untitled_design__2_"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="500dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
