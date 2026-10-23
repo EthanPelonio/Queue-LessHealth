@@ -17,16 +17,21 @@
         android:id="@+id/imageFilterView"
         android:layout_width="365dp"
         android:layout_height="38dp"
-        app:srcCompat="@drawable/untitled_design__2_"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="249dp" />
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageFilterView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/untitled_design__2_" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="QH-2026-00567"
-        android:textSize="12dp"
+        android:textSize="12sp"
         tools:layout_editor_absoluteX="286dp"
         tools:layout_editor_absoluteY="259dp" />
 
@@ -68,7 +73,7 @@
         android:fontFamily="@font/Oswald"
         android:text="BOOKING CONFIRMED"
         android:textColor="#008000"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintTop_toTopOf="@+id/imageFilterView7"
         tools:layout_editor_absoluteX="122dp" />
 
@@ -78,7 +83,7 @@
         android:layout_height="16dp"
         android:text="VIEW QUEUE STATUS"
         android:textColor="#FFF"
-        android:textSize="13dp"
+        android:textSize="13sp"
         tools:layout_editor_absoluteX="142dp"
         tools:layout_editor_absoluteY="569dp" />
 
@@ -88,7 +93,7 @@
         android:layout_height="19dp"
         android:text="BACK TO HOME"
         android:textColor="#FFF"
-        android:textSize="15dp"
+        android:textSize="15sp"
         tools:layout_editor_absoluteX="150dp"
         tools:layout_editor_absoluteY="630dp" />
 
@@ -99,7 +104,7 @@
         android:fontFamily="@font/Oswald"
         android:text="Appointment Confirmed!"
         android:textColor="#000"
-        android:textSize="20dp"
+        android:textSize="20sp"
         tools:layout_editor_absoluteX="113dp"
         tools:layout_editor_absoluteY="201dp" />
 
@@ -108,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Booking Reference No."
-        android:textSize="12dp"
+        android:textSize="12sp"
         tools:layout_editor_absoluteX="50dp"
         tools:layout_editor_absoluteY="259dp" />
 
@@ -116,16 +121,24 @@
         android:id="@+id/imageFilterView3"
         android:layout_width="365dp"
         android:layout_height="38dp"
-        app:srcCompat="@drawable/untitled_design__2_"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="297dp" />
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageFilterView2"
+        app:layout_constraintEnd_toStartOf="@+id/imageFilterView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageFilterView"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/untitled_design__2_" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Patient:"
-        android:textSize="12dp"
+        android:textSize="12sp"
         tools:layout_editor_absoluteX="50dp"
         tools:layout_editor_absoluteY="308dp" />
 
@@ -133,16 +146,23 @@
         android:id="@+id/imageFilterView2"
         android:layout_width="365dp"
         android:layout_height="38dp"
-        app:srcCompat="@drawable/untitled_design__2_"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="346dp" />
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="347dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageFilterView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageFilterView3"
+        app:srcCompat="@drawable/untitled_design__2_" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Doctor:"
-        android:textSize="12dp"
+        android:textSize="12sp"
         tools:layout_editor_absoluteX="50dp"
         tools:layout_editor_absoluteY="357dp" />
 
@@ -150,16 +170,24 @@
         android:id="@+id/imageFilterView4"
         android:layout_width="365dp"
         android:layout_height="38dp"
-        app:srcCompat="@drawable/untitled_design__2_"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="394dp" />
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="394dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageFilterView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageFilterView5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/untitled_design__2_" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date:"
-        android:textSize="12dp"
+        android:textSize="12sp"
         tools:layout_editor_absoluteX="50dp"
         tools:layout_editor_absoluteY="405dp" />
 
@@ -167,9 +195,16 @@
         android:id="@+id/imageFilterView8"
         android:layout_width="365dp"
         android:layout_height="38dp"
-        app:srcCompat="@drawable/untitled_design__2_"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="446dp" />
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="248dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageFilterView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageFilterView4"
+        app:srcCompat="@drawable/untitled_design__2_" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView12"
@@ -211,7 +246,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="J. Dela Cruz"
-        android:textSize="12dp"
+        android:textSize="12sp"
         tools:layout_editor_absoluteX="307dp"
         tools:layout_editor_absoluteY="357dp" />
 
@@ -242,14 +277,6 @@
         android:textSize="14dp"
         tools:layout_editor_absoluteX="364dp"
         tools:layout_editor_absoluteY="500dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView14"
-        android:layout_width="116dp"
-        android:layout_height="85dp"
-        app:srcCompat="@drawable/firefly_removebackground"
-        tools:layout_editor_absoluteX="320dp"
-        tools:layout_editor_absoluteY="-12dp" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView10"
