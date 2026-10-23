@@ -20,18 +20,18 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="377dp"
-            android:layout_height="64dp"
-            app:srcCompat="@drawable/screenshot_2026_10_12_133011" />
-
         <TextView
             android:layout_width="149dp"
             android:layout_height="wrap_content"
             android:text="←"
             android:textColor="#000000"
             android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/screenshot_2026_10_12_133011" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
 
         <Button
             android:id="@+id/button5"
-            android:layout_width="68dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ALL" />
 
@@ -261,5 +261,11 @@
         android:layout_height="wrap_content"
         android:drawableTint="@color/black"
         android:text="HOME" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="716dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_media_next" />
 
 </LinearLayout>
