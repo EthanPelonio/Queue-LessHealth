@@ -37,14 +37,6 @@
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView9"
-        android:layout_width="152dp"
-        android:layout_height="105dp"
-        app:srcCompat="@android:drawable/presence_online"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="76dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView19"
         android:layout_width="179dp"
         android:layout_height="97dp"
