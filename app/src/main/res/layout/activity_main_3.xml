@@ -1,289 +1,378 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Background -->
+
+    <!-- Header decoration -->
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/copy_of_health"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/copy_of_health" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView"
-        android:layout_width="365dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="248dp"
+        android:id="@+id/headerImage"
+        android:layout_width="353dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageFilterView5"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/untitled_design__2_" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/bookingConfirmedTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="QH-2026-00567"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="286dp"
-        tools:layout_editor_absoluteY="259dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView6"
-        android:layout_width="45dp"
-        android:layout_height="38dp"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView19"
-        android:layout_width="179dp"
-        android:layout_height="97dp"
-        app:srcCompat="@android:drawable/dialog_holo_dark_frame"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="530dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView20"
-        android:layout_width="179dp"
-        android:layout_height="97dp"
-        app:srcCompat="@android:drawable/dialog_holo_dark_frame"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="594dp" />
-
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView7"
-        android:layout_width="338dp"
-        android:layout_height="31dp"
-        app:srcCompat="@drawable/untitled_design__2_"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="39dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="167dp"
-        android:layout_height="32dp"
-        android:fontFamily="@font/Oswald"
         android:text="BOOKING CONFIRMED"
         android:textColor="#008000"
         android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="@+id/imageFilterView7"
-        tools:layout_editor_absoluteX="122dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="126dp"
-        android:layout_height="16dp"
-        android:text="VIEW QUEUE STATUS"
-        android:textColor="#FFF"
-        android:textSize="13sp"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="569dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="108dp"
-        android:layout_height="19dp"
-        android:text="BACK TO HOME"
-        android:textColor="#FFF"
-        android:textSize="15sp"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="630dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="185dp"
-        android:layout_height="32dp"
         android:fontFamily="@font/Oswald"
-        android:text="Appointment Confirmed!"
-        android:textColor="#000"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="201dp" />
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@id/headerImage"
+        app:layout_constraintBottom_toBottomOf="@id/headerImage"
+        app:layout_constraintStart_toStartOf="@id/headerImage"
+        app:layout_constraintEnd_toEndOf="@id/headerImage" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Booking Reference No."
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="259dp" />
+    <!-- Confirmation illustration -->
+
+    <!-- Booking reference label -->
+
+    <!-- Patient row -->
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView3"
-        android:layout_width="365dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageFilterView2"
-        app:layout_constraintEnd_toStartOf="@+id/imageFilterView5"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:id="@+id/confirmationImage"
+        android:layout_width="179dp"
+        android:layout_height="164dp"
+        app:layout_constraintBottom_toTopOf="@+id/bookingReferenceValue3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageFilterView"
+        app:layout_constraintTop_toBottomOf="@id/headerImage"
         app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/firefly" />
+
+    <TextView
+        android:id="@+id/appointmentConfirmedTitle"
+        android:layout_width="182dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/Oswald"
+        android:text="Appointment Confirmed!"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/patientRowBackground2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirmationImage"
+        app:layout_constraintVertical_bias="0.783" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/patientRowBackground"
+        android:layout_width="374dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/patientRowBackground2"
+        app:srcCompat="@drawable/untitled_design__2_" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/patientRowBackground2"
+        android:layout_width="376dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmationImage"
         app:srcCompat="@drawable/untitled_design__2_" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/bookingReferenceValue3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Patient:"
+        android:layout_marginEnd="24dp"
+        android:text="QH-2026-00567"
+        android:textColor="#000000"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="308dp" />
+        app:layout_constraintBottom_toTopOf="@+id/patientRowBackground2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundImage"
+        app:layout_constraintVertical_bias="0.937" />
+
+    <TextView
+        android:id="@+id/bookingReferenceLabel"
+        android:layout_width="252dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Booking Reference No."
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appointmentConfirmedTitle" />
+
+    <TextView
+        android:id="@+id/patientLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Patient:"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/patientRowBackground"
+        app:layout_constraintTop_toTopOf="@id/patientRowBackground"
+        app:layout_constraintBottom_toBottomOf="@id/patientRowBackground" />
+
+    <TextView
+        android:id="@+id/patientValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:text="J. Dela Cruz"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/patientRowBackground"
+        app:layout_constraintTop_toTopOf="@id/patientRowBackground"
+        app:layout_constraintBottom_toBottomOf="@id/patientRowBackground" />
+
+    <!-- Doctor row -->
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/doctorRowBackground"
+        android:layout_width="374dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/patientRowBackground"
+        app:layout_constraintStart_toStartOf="@id/patientRowBackground"
+        app:layout_constraintTop_toBottomOf="@id/patientRowBackground"
+        app:srcCompat="@drawable/untitled_design__2_" />
+
+    <TextView
+        android:id="@+id/doctorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Doctor:"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/doctorRowBackground"
+        app:layout_constraintTop_toTopOf="@id/doctorRowBackground"
+        app:layout_constraintBottom_toBottomOf="@id/doctorRowBackground" />
+
+    <TextView
+        android:id="@+id/doctorValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:text="Dr. A. Santos"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/doctorRowBackground"
+        app:layout_constraintTop_toTopOf="@id/doctorRowBackground"
+        app:layout_constraintBottom_toBottomOf="@id/doctorRowBackground" />
+
+    <!-- Date row -->
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/dateRowBackground"
+        android:layout_width="373dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/patientRowBackground"
+        app:layout_constraintStart_toStartOf="@id/patientRowBackground"
+        app:layout_constraintTop_toBottomOf="@id/doctorRowBackground"
+        app:srcCompat="@drawable/untitled_design__2_" />
+
+    <TextView
+        android:id="@+id/dateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Date:"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/dateRowBackground"
+        app:layout_constraintTop_toTopOf="@id/dateRowBackground"
+        app:layout_constraintBottom_toBottomOf="@id/dateRowBackground" />
+
+    <TextView
+        android:id="@+id/dateValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:text="July 25, 2026"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/dateRowBackground"
+        app:layout_constraintTop_toTopOf="@id/dateRowBackground"
+        app:layout_constraintBottom_toBottomOf="@id/dateRowBackground" />
+
+    <!-- Time row -->
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/timeRowBackground"
+        android:layout_width="373dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/patientRowBackground"
+        app:layout_constraintStart_toStartOf="@id/patientRowBackground"
+        app:layout_constraintTop_toBottomOf="@id/dateRowBackground"
+        app:srcCompat="@drawable/untitled_design__2_" />
+
+    <TextView
+        android:id="@+id/timeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Time:"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/timeRowBackground"
+        app:layout_constraintTop_toTopOf="@id/timeRowBackground"
+        app:layout_constraintBottom_toBottomOf="@id/timeRowBackground" />
+
+    <TextView
+        android:id="@+id/timeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:text="9:00 am"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/timeRowBackground"
+        app:layout_constraintTop_toTopOf="@id/timeRowBackground"
+        app:layout_constraintBottom_toBottomOf="@id/timeRowBackground" />
+
+    <!-- Queue number row -->
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/queueRowBackground"
+        android:layout_width="376dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@id/patientRowBackground"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@id/patientRowBackground"
+        app:layout_constraintTop_toBottomOf="@id/timeRowBackground"
+        app:srcCompat="@drawable/untitled_design__2_" />
+
+    <TextView
+        android:id="@+id/queueLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Queue No.:"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/queueRowBackground"
+        app:layout_constraintTop_toTopOf="@id/queueRowBackground"
+        app:layout_constraintBottom_toBottomOf="@id/queueRowBackground" />
+
+    <TextView
+        android:id="@+id/queueValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:text="8"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/queueRowBackground"
+        app:layout_constraintTop_toTopOf="@id/queueRowBackground"
+        app:layout_constraintBottom_toBottomOf="@id/queueRowBackground" />
+
+    <!-- View Queue Status button background -->
+
+    <!-- Back to Home button background -->
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/viewQueueButtonBackground"
+        android:layout_width="217dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/queueRowBackground"
+        app:srcCompat="@android:drawable/dialog_holo_dark_frame" />
+
+    <TextView
+        android:id="@+id/viewQueueButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="VIEW QUEUE STATUS"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@id/viewQueueButtonBackground"
+        app:layout_constraintEnd_toEndOf="@id/viewQueueButtonBackground"
+        app:layout_constraintStart_toStartOf="@id/viewQueueButtonBackground"
+        app:layout_constraintTop_toTopOf="@id/viewQueueButtonBackground"
+        app:layout_constraintVertical_bias="0.475" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/backHomeButtonBackground"
+        android:layout_width="188dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewQueueButtonBackground"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/dialog_holo_dark_frame" />
+
+    <TextView
+        android:id="@+id/backHomeButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="BACK TO HOME"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/backHomeButtonBackground"
+        app:layout_constraintEnd_toEndOf="@id/backHomeButtonBackground"
+        app:layout_constraintStart_toStartOf="@id/backHomeButtonBackground"
+        app:layout_constraintTop_toTopOf="@id/backHomeButtonBackground"
+        app:layout_constraintVertical_bias="0.49" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView2"
-        android:layout_width="365dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="347dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageFilterView5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageFilterView3"
-        app:srcCompat="@drawable/untitled_design__2_" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Doctor:"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="357dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView4"
-        android:layout_width="365dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="394dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageFilterView8"
+        android:layout_width="55dp"
+        android:layout_height="61dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageFilterView5"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/untitled_design__2_" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date:"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="405dp" />
+        app:srcCompat="@drawable/firefly_removebackground" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView8"
-        android:layout_width="365dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="248dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageFilterView5"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:id="@+id/imageFilterView3"
+        android:layout_width="38dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageFilterView4"
-        app:srcCompat="@drawable/untitled_design__2_" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView12"
-        android:layout_width="365dp"
-        android:layout_height="38dp"
-        app:srcCompat="@drawable/untitled_design__2_"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="492dp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Time:"
-        android:textSize="12dp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="456dp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Queue No. :"
-        android:textSize="12dp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="503dp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dr. A. Santos"
-        android:textSize="12dp"
-        tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="308dp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="J. Dela Cruz"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="307dp"
-        tools:layout_editor_absoluteY="357dp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="July 25, 2026"
-        android:textSize="12dp"
-        tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="405dp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="9:00 am"
-        android:textSize="12dp"
-        tools:layout_editor_absoluteX="328dp"
-        tools:layout_editor_absoluteY="456dp" />
-
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="8"
-        android:textSize="14dp"
-        tools:layout_editor_absoluteX="364dp"
-        tools:layout_editor_absoluteY="500dp" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView10"
-        android:layout_width="196dp"
-        android:layout_height="183dp"
-        app:srcCompat="@drawable/firefly"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="50dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
