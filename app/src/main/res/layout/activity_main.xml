@@ -20,6 +20,12 @@ com.example.queuelesshealth
 
     <!-- Forgot Password Link -->
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/screenshot_2026_10_12_133011" />
+
     <TextView
         android:id="@+id/tvLogo"
         android:layout_width="wrap_content"
@@ -86,12 +92,6 @@ com.example.queuelesshealth
         android:layout_marginBottom="16dp"
         android:text="─────  Or  ─────"
         android:textColor="#757575" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/screenshot_2026_10_12_133011" />
 
     <!-- Simple
     //code by pelonio
