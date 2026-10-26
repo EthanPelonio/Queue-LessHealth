@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@android:color/white">
 
     <!-- Background -->
 
@@ -15,10 +15,11 @@
         android:id="@+id/backgroundImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@null"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -26,11 +27,12 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/headerImage"
-        android:layout_width="353dp"
+        android:layout_width="0dp"
         android:layout_height="39dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="24dp"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -40,26 +42,23 @@
         android:id="@+id/bookingConfirmedTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BOOKING CONFIRMED"
-        android:textColor="#008000"
-        android:textSize="20sp"
-        android:fontFamily="@font/oswald"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="@id/headerImage"
+        android:text="BOOKING CONFIRMED"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/headerImage"
+        app:layout_constraintEnd_toEndOf="@id/headerImage"
         app:layout_constraintStart_toStartOf="@id/headerImage"
-        app:layout_constraintEnd_toEndOf="@id/headerImage" />
+        app:layout_constraintTop_toTopOf="@id/headerImage"
+        tools:ignore="HardcodedText" />
 
     <!-- Confirmation illustration -->
-
-    <!-- Booking reference label -->
-
-    <!-- Patient row -->
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/confirmationImage"
         android:layout_width="179dp"
         android:layout_height="164dp"
+        android:contentDescription="@null"
         app:layout_constraintBottom_toTopOf="@+id/bookingReferenceValue3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,28 +68,32 @@
 
     <TextView
         android:id="@+id/appointmentConfirmedTitle"
-        android:layout_width="182dp"
-        android:layout_height="38dp"
+        android:layout_width="221dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="24dp"
-        android:fontFamily="@font/oswald"
+        android:gravity="center"
         android:text="Appointment Confirmed!"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/patientRowBackground2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/confirmationImage"
-        app:layout_constraintVertical_bias="0.783" />
+        app:layout_constraintVertical_bias="0.627"
+        tools:ignore="HardcodedText" />
+
+    <!-- Patient row -->
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/patientRowBackground"
-        android:layout_width="374dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/patientRowBackground2"
@@ -98,13 +101,13 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/patientRowBackground2"
-        android:layout_width="376dp"
+        android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="24dp"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmationImage"
         app:srcCompat="@drawable/untitled_design__2_" />
@@ -115,24 +118,26 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="QH-2026-00567"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/patientRowBackground2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backgroundImage"
-        app:layout_constraintVertical_bias="0.937" />
+        app:layout_constraintVertical_bias="0.935"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/bookingReferenceLabel"
         android:layout_width="252dp"
         android:layout_height="31dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
         android:text="Booking Reference No."
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appointmentConfirmedTitle" />
+        app:layout_constraintTop_toBottomOf="@id/appointmentConfirmedTitle"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/patientLabel"
@@ -140,11 +145,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:text="Patient:"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/patientRowBackground"
         app:layout_constraintStart_toStartOf="@id/patientRowBackground"
         app:layout_constraintTop_toTopOf="@id/patientRowBackground"
-        app:layout_constraintBottom_toBottomOf="@id/patientRowBackground" />
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/patientValue"
@@ -152,18 +158,21 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:text="J. Dela Cruz"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/patientRowBackground"
         app:layout_constraintEnd_toEndOf="@id/patientRowBackground"
         app:layout_constraintTop_toTopOf="@id/patientRowBackground"
-        app:layout_constraintBottom_toBottomOf="@id/patientRowBackground" />
+        tools:ignore="HardcodedText" />
 
     <!-- Doctor row -->
+
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/doctorRowBackground"
-        android:layout_width="374dp"
+        android:layout_width="0dp"
         android:layout_height="49dp"
         android:layout_marginTop="10dp"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="@id/patientRowBackground"
         app:layout_constraintStart_toStartOf="@id/patientRowBackground"
         app:layout_constraintTop_toBottomOf="@id/patientRowBackground"
@@ -175,11 +184,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:text="Doctor:"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/doctorRowBackground"
         app:layout_constraintStart_toStartOf="@id/doctorRowBackground"
         app:layout_constraintTop_toTopOf="@id/doctorRowBackground"
-        app:layout_constraintBottom_toBottomOf="@id/doctorRowBackground" />
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/doctorValue"
@@ -187,18 +197,21 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:text="Dr. A. Santos"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/doctorRowBackground"
         app:layout_constraintEnd_toEndOf="@id/doctorRowBackground"
         app:layout_constraintTop_toTopOf="@id/doctorRowBackground"
-        app:layout_constraintBottom_toBottomOf="@id/doctorRowBackground" />
+        tools:ignore="HardcodedText" />
 
     <!-- Date row -->
+
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/dateRowBackground"
-        android:layout_width="373dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="@id/patientRowBackground"
         app:layout_constraintStart_toStartOf="@id/patientRowBackground"
         app:layout_constraintTop_toBottomOf="@id/doctorRowBackground"
@@ -210,11 +223,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:text="Date:"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/dateRowBackground"
         app:layout_constraintStart_toStartOf="@id/dateRowBackground"
         app:layout_constraintTop_toTopOf="@id/dateRowBackground"
-        app:layout_constraintBottom_toBottomOf="@id/dateRowBackground" />
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/dateValue"
@@ -222,18 +236,21 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:text="July 25, 2026"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/dateRowBackground"
         app:layout_constraintEnd_toEndOf="@id/dateRowBackground"
         app:layout_constraintTop_toTopOf="@id/dateRowBackground"
-        app:layout_constraintBottom_toBottomOf="@id/dateRowBackground" />
+        tools:ignore="HardcodedText" />
 
     <!-- Time row -->
+
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/timeRowBackground"
-        android:layout_width="373dp"
+        android:layout_width="0dp"
         android:layout_height="53dp"
         android:layout_marginTop="10dp"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="@id/patientRowBackground"
         app:layout_constraintStart_toStartOf="@id/patientRowBackground"
         app:layout_constraintTop_toBottomOf="@id/dateRowBackground"
@@ -245,11 +262,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:text="Time:"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/timeRowBackground"
         app:layout_constraintStart_toStartOf="@id/timeRowBackground"
         app:layout_constraintTop_toTopOf="@id/timeRowBackground"
-        app:layout_constraintBottom_toBottomOf="@id/timeRowBackground" />
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/timeValue"
@@ -257,21 +275,22 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:text="9:00 am"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/timeRowBackground"
         app:layout_constraintEnd_toEndOf="@id/timeRowBackground"
         app:layout_constraintTop_toTopOf="@id/timeRowBackground"
-        app:layout_constraintBottom_toBottomOf="@id/timeRowBackground" />
+        tools:ignore="HardcodedText" />
 
     <!-- Queue number row -->
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/queueRowBackground"
-        android:layout_width="376dp"
+        android:layout_width="0dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="@id/patientRowBackground"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="@id/patientRowBackground"
         app:layout_constraintTop_toBottomOf="@id/timeRowBackground"
         app:srcCompat="@drawable/untitled_design__2_" />
@@ -282,11 +301,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:text="Queue No.:"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/queueRowBackground"
         app:layout_constraintStart_toStartOf="@id/queueRowBackground"
         app:layout_constraintTop_toTopOf="@id/queueRowBackground"
-        app:layout_constraintBottom_toBottomOf="@id/queueRowBackground" />
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/queueValue"
@@ -294,21 +314,21 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:text="8"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/queueRowBackground"
         app:layout_constraintEnd_toEndOf="@id/queueRowBackground"
         app:layout_constraintTop_toTopOf="@id/queueRowBackground"
-        app:layout_constraintBottom_toBottomOf="@id/queueRowBackground" />
+        tools:ignore="HardcodedText" />
 
     <!-- View Queue Status button background -->
-
-    <!-- Back to Home button background -->
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/viewQueueButtonBackground"
         android:layout_width="217dp"
         android:layout_height="63dp"
         android:layout_marginTop="4dp"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
@@ -321,13 +341,16 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="VIEW QUEUE STATUS"
-        android:textColor="#FFFFFF"
+        android:textColor="@android:color/white"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@id/viewQueueButtonBackground"
         app:layout_constraintEnd_toEndOf="@id/viewQueueButtonBackground"
         app:layout_constraintStart_toStartOf="@id/viewQueueButtonBackground"
         app:layout_constraintTop_toTopOf="@id/viewQueueButtonBackground"
-        app:layout_constraintVertical_bias="0.475" />
+        app:layout_constraintVertical_bias="0.475"
+        tools:ignore="HardcodedText" />
+
+    <!-- Back to Home button background -->
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/backHomeButtonBackground"
@@ -335,6 +358,7 @@
         android:layout_height="62dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="16dp"
+        android:contentDescription="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -349,18 +373,20 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="BACK TO HOME"
-        android:textColor="#FFFFFF"
+        android:textColor="@android:color/white"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@id/backHomeButtonBackground"
         app:layout_constraintEnd_toEndOf="@id/backHomeButtonBackground"
         app:layout_constraintStart_toStartOf="@id/backHomeButtonBackground"
         app:layout_constraintTop_toTopOf="@id/backHomeButtonBackground"
-        app:layout_constraintVertical_bias="0.49" />
+        app:layout_constraintVertical_bias="0.49"
+        tools:ignore="HardcodedText" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView2"
         android:layout_width="55dp"
         android:layout_height="61dp"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/firefly_removebackground" />
@@ -371,6 +397,7 @@
         android:layout_height="46dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
+        android:contentDescription="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
