@@ -44,6 +44,7 @@
 
     <!-- Greeting -->
     <TextView
+        android:id="@+id/tvGreeting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -108,6 +109,7 @@
 
             <!-- Patient Card 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardPatient1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="14dp"
@@ -143,15 +145,17 @@
                             android:gravity="center_vertical">
 
                             <TextView
+                                android:id="@+id/tvPatient1Name"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Patient2"
+                                android:text="Patient 2"
                                 android:textColor="#0D47A1"
                                 android:textSize="17sp"
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tvPatient1Type"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="REGULAR"
@@ -163,14 +167,16 @@
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/tvPatient1Reason"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Reason:"
+                            android:text="Reason: General Checkup"
                             android:textColor="#212121"
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/tvPatient1Time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="July 25, 2026: 9:00 AM"
@@ -179,6 +185,7 @@
                             android:layout_marginTop="2dp" />
 
                         <LinearLayout
+                            android:id="@+id/layoutPatient1Actions"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
@@ -211,6 +218,7 @@
 
             <!-- Patient Card 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardPatient2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="14dp"
@@ -246,15 +254,17 @@
                             android:gravity="center_vertical">
 
                             <TextView
+                                android:id="@+id/tvPatient2Name"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Patient"
+                                android:text="Patient 1"
                                 android:textColor="#0D47A1"
                                 android:textSize="17sp"
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/tvPatient2Type"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="PRIORITY"
@@ -266,14 +276,16 @@
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/tvPatient2Reason"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Reason: "
+                            android:text="Reason: Chest Pain Follow-up"
                             android:textColor="#212121"
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/tvPatient2Time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="July 25, 2026: 10:00 AM"
@@ -281,18 +293,49 @@
                             android:textColor="#424242"
                             android:layout_marginTop="2dp" />
 
-                        <Button
-                            android:id="@+id/btnBook"
+                        <LinearLayout
+                            android:id="@+id/layoutPatient2Actions"
                             android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:text="BOOK"
-                            android:textSize="13sp"
-                            android:backgroundTint="#1565C0"
-                            android:textColor="#FFFFFF"
-                            android:layout_marginTop="10dp" />
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+
+                            <Button
+                                android:id="@+id/btnAccept2"
+                                android:layout_width="0dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:backgroundTint="#2E7D32"
+                                android:text="ACCEPT"
+                                android:textColor="#FFFFFF"
+                                android:textSize="13sp"
+                                android:layout_marginEnd="8dp" />
+
+                            <Button
+                                android:id="@+id/btnReject2"
+                                android:layout_width="0dp"
+                                android:layout_height="48dp"
+                                android:layout_weight="1"
+                                android:backgroundTint="#546E7A"
+                                android:text="REJECT"
+                                android:textColor="#FFFFFF"
+                                android:textSize="13sp" />
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <!-- Empty State View -->
+            <TextView
+                android:id="@+id/tvEmptyState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="32dp"
+                android:text="No appointments found for this category."
+                android:textColor="#757575"
+                android:textSize="16sp"
+                android:visibility="gone" />
 
         </LinearLayout>
     </ScrollView>
@@ -313,8 +356,8 @@
             android:layout_weight="1"
             android:text="Home"
             android:textSize="12sp"
-            android:backgroundTint="#E3F2FD"
-            android:textColor="#0D47A1"
+            android:backgroundTint="#2E7D32"
+            android:textColor="#FFFFFF"
             android:layout_marginHorizontal="4dp" />
 
         <Button
@@ -326,8 +369,7 @@
             android:backgroundTint="#E3F2FD"
             android:text="Appointment"
             android:textColor="#0D47A1"
-            android:textSize="12sp"
-            tools:visibility="gone" />
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/navQueue"
@@ -336,8 +378,8 @@
             android:layout_weight="1"
             android:text="Queue"
             android:textSize="12sp"
-            android:backgroundTint="#2E7D32"
-            android:textColor="#FFFFFF"
+            android:backgroundTint="#E3F2FD"
+            android:textColor="#0D47A1"
             android:layout_marginHorizontal="4dp" />
 
         <Button
@@ -349,8 +391,7 @@
             android:backgroundTint="#E3F2FD"
             android:text="Profile"
             android:textColor="#0D47A1"
-            android:textSize="12sp"
-            tools:visibility="gone" />
+            android:textSize="12sp" />
     </LinearLayout>
 
 </LinearLayout>
