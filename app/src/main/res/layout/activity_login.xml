@@ -1,8 +1,7 @@
-com.example.queuelesshealth
-
-    <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E8F5E9"
@@ -10,22 +9,19 @@ com.example.queuelesshealth
     android:orientation="vertical"
     android:padding="24dp">
 
-    <!-- App Logo -->
-
-    <!-- Screen Header -->
-
-    <!-- Email Address Text Field -->
-
-    <!-- Password Field -->
-
-    <!-- Forgot Password Link -->
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/screenshot_2026_10_12_133011"
+        android:contentDescription="Logo" />
 
     <TextView
         android:id="@+id/tvLogo"
         android:layout_width="wrap_content"
-        android:layout_height="44dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:text="Queue-Less Health"
         android:textColor="#2E7D32"
         android:textSize="24sp"
@@ -36,6 +32,7 @@ com.example.queuelesshealth
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="Login"
+        android:textColor="#333333"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -69,7 +66,6 @@ com.example.queuelesshealth
         android:text="Forgot Password?"
         android:textColor="#1565C0" />
 
-    <!-- Login Button -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
@@ -79,7 +75,6 @@ com.example.queuelesshealth
         android:text="Login"
         android:textColor="#FFFFFF" />
 
-    <!-- Divider ("Or") -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,11 +82,14 @@ com.example.queuelesshealth
         android:text="─────  Or  ─────"
         android:textColor="#757575" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/screenshot_2026_10_12_133011" />
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Don't have an account? Register"
+        android:textColor="#2E7D32"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
-    <!-- Simple
-    //code by pelonio
+</LinearLayout>
