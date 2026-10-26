@@ -36,10 +36,10 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="180dp"
+            android:layout_height="115dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/screenshot_2026_10_12_133011" />
+            app:srcCompat="@drawable/firefly_removebackground" />
     </LinearLayout>
 
     <!-- Greeting -->
