@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class FindAdoctor extends AppCompatActivity {
 
     // Initialize views after setting the layout
-    ImageView btnBack2 = findViewById(R.id.tabs);
+    ImageView btnBack2;
     Button button7;
     LinearLayout layoutDoctor1, layoutDoctor2, layoutDoctor3;
 
