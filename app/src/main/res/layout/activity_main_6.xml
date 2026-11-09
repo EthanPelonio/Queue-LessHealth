@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/activity_main_menu.xml : no Material theme needed, works in any AppCompat theme -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mm_bg"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scrollMain"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <!-- ========== HEADER ========== -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mm_bg_header">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingTop="36dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="76dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/mm_bg_logo"
+                            android:contentDescription="Logo"
+                            android:padding="7dp"
+                            android:src="@drawable/mm_ic_hospital" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Queue-Less Health"
+                            android:textColor="@color/mm_white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvGreeting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="22dp"
+                        android:paddingEnd="120dp"
+                        android:text="Hello, Guest!"
+                        android:textColor="@color/mm_white"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSubGreeting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:paddingEnd="120dp"
+                        android:text="Skip the waiting room. Book, track and get seen."
+                        android:textColor="#E6FFFFFF"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="-14dp"
+                    android:layout_marginBottom="52dp"
+                    android:contentDescription="Clinic illustration"
+                    android:src="@drawable/mm_ic_hero" />
+
+            </FrameLayout>
+
+            <!-- ========== LIVE QUEUE CARD ========== -->
+            <LinearLayout
+                android:id="@+id/cardQueueStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-50dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/mm_bg_card"
+                android:clickable="true"
+                android:elevation="8dp"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.1"
+                        android:text="YOUR QUEUE"
+                        android:textColor="@color/mm_primary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvQueueStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="No active appointment"
+                        android:textColor="@color/mm_text"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvQueueDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Book an appointment to get a queue number."
+                        android:textColor="@color/mm_muted"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvQueueNumber"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/mm_bg_queue_badge"
+                    android:gravity="center"
+                    android:text="--"
+                    android:textColor="@color/mm_primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- ========== LOGIN / REGISTER ========== -->
+            <LinearLayout
+                android:id="@+id/layoutAuth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/mm_bg_btn_primary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="Login"
+                    android:textColor="@color/mm_white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btnRegister"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/mm_bg_btn_outline"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="Register"
+                    android:textColor="@color/mm_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- ========== SPECIALTIES ========== -->
+            <TextView
+                style="@style/MmSectionTitle"
+                android:text="Browse by specialty" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="12dp">
+
+                    <TextView android:id="@+id/chipGeneral" style="@style/MmChip" android:text="General" />
+                    <TextView android:id="@+id/chipPediatrics" style="@style/MmChip" android:text="Pediatrics" />
+                    <TextView android:id="@+id/chipDental" style="@style/MmChip" android:text="Dental" />
+                    <TextView android:id="@+id/chipCardiology" style="@style/MmChip" android:text="Cardiology" />
+                    <TextView android:id="@+id/chipEye" style="@style/MmChip" android:text="Eye Care" />
+                    <TextView android:id="@+id/chipDerma" style="@style/MmChip" android:text="Dermatology" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- ========== SERVICES ========== -->
+            <TextView
+                style="@style/MmSectionTitle"
+                android:text="What would you like to do?" />
+
+            <!-- ========== HEALTH TIP ========== -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/cardBook"
+                        style="@style/MmCard">
+
+                        <ImageView
+                            style="@style/MmIcon"
+                            android:backgroundTint="@color/mm_teal_bg"
+                            android:contentDescription="Book"
+                            android:src="@drawable/mm_ic_calendar"
+                            app:tint="@color/mm_teal" />
+
+                        <TextView
+                            style="@style/MmCardTitle"
+                            android:text="Book Appointment" />
+
+                        <TextView
+                            style="@style/MmCardDesc"
+                            android:text="Pick a doctor, date and time" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardDoctors"
+                        style="@style/MmCard">
+
+                        <ImageView
+                            style="@style/MmIcon"
+                            android:backgroundTint="@color/mm_blue_bg"
+                            android:contentDescription="Doctors"
+                            android:src="@drawable/mm_ic_search"
+                            app:tint="@color/mm_blue" />
+
+                        <TextView
+                            style="@style/MmCardTitle"
+                            android:text="Find a Doctor" />
+
+                        <TextView
+                            style="@style/MmCardDesc"
+                            android:text="Search by name or specialty" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/cardQueue"
+                        style="@style/MmCard">
+
+                        <ImageView
+                            style="@style/MmIcon"
+                            android:backgroundTint="@color/mm_orange_bg"
+                            android:contentDescription="Queue"
+                            android:src="@drawable/mm_ic_clock"
+                            app:tint="@color/mm_orange" />
+
+                        <TextView
+                            style="@style/MmCardTitle"
+                            android:text="My Queue" />
+
+                        <TextView
+                            style="@style/MmCardDesc"
+                            android:text="Live number and wait time" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardAppointments"
+                        style="@style/MmCard">
+
+                        <ImageView
+                            style="@style/MmIcon"
+                            android:backgroundTint="@color/mm_purple_bg"
+                            android:contentDescription="Appointments"
+                            android:src="@drawable/mm_ic_list"
+                            app:tint="@color/mm_purple" />
+
+                        <TextView
+                            style="@style/MmCardTitle"
+                            android:text="My Appointments" />
+
+                        <TextView
+                            style="@style/MmCardDesc"
+                            android:text="View, reschedule or cancel" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/cardDashboard"
+                        style="@style/MmCard">
+
+                        <ImageView
+                            style="@style/MmIcon"
+                            android:backgroundTint="@color/mm_green_bg"
+                            android:contentDescription="Dashboard"
+                            android:src="@drawable/mm_ic_dashboard"
+                            app:tint="@color/mm_green" />
+
+                        <TextView
+                            style="@style/MmCardTitle"
+                            android:text="Dashboard" />
+
+                        <TextView
+                            style="@style/MmCardDesc"
+                            android:text="Visit history and summary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardNotifications"
+                        style="@style/MmCard">
+
+                        <ImageView
+                            style="@style/MmIcon"
+                            android:backgroundTint="@color/mm_amber_bg"
+                            android:contentDescription="Notifications"
+                            android:src="@drawable/mm_ic_bell"
+                            app:tint="@color/mm_amber" />
+
+                        <TextView
+                            style="@style/MmCardTitle"
+                            android:text="Notifications" />
+
+                        <TextView
+                            style="@style/MmCardDesc"
+                            android:text="Reminders and queue alerts" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/cardProfile"
+                        style="@style/MmCard">
+
+                        <ImageView
+                            style="@style/MmIcon"
+                            android:backgroundTint="@color/mm_pink_bg"
+                            android:contentDescription="Profile"
+                            android:src="@drawable/mm_ic_person"
+                            app:tint="@color/mm_pink" />
+
+                        <TextView
+                            style="@style/MmCardTitle"
+                            android:text="My Profile" />
+
+                        <TextView
+                            style="@style/MmCardDesc"
+                            android:text="Personal and contact info" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardHelp"
+                        style="@style/MmCard">
+
+                        <ImageView
+                            style="@style/MmIcon"
+                            android:backgroundTint="@color/mm_slate_bg"
+                            android:contentDescription="Help"
+                            android:src="@drawable/mm_ic_help"
+                            app:tint="@color/mm_slate" />
+
+                        <TextView
+                            style="@style/MmCardTitle"
+                            android:text="Help &amp; About" />
+
+                        <TextView
+                            style="@style/MmCardDesc"
+                            android:text="How the app works" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/mm_bg_tip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/mm_bg_icon_circle"
+                    android:backgroundTint="@color/mm_amber_bg"
+                    android:contentDescription="Tip"
+                    android:padding="9dp"
+                    android:src="@drawable/mm_ic_bulb"
+                    app:tint="@color/mm_amber" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Health tip of the day"
+                        android:textColor="@color/mm_text"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Drink enough water today."
+                        android:textColor="@color/mm_muted"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ========== EMERGENCY ========== -->
+            <LinearLayout
+                android:id="@+id/btnEmergency"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/mm_bg_btn_emergency"
+                android:clickable="true"
+                android:elevation="4dp"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="Call"
+                    android:src="@drawable/mm_ic_phone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Emergency? Call 911"
+                    android:textColor="@color/mm_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="Log out"
+                android:textColor="@color/mm_muted"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ========== BOTTOM NAV ========== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mm_bg_bottom_nav"
+        android:elevation="10dp"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout android:id="@+id/navHome" style="@style/MmNavItem">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="Home" android:src="@drawable/mm_ic_home" app:tint="@color/mm_primary" />
+            <TextView style="@style/MmNavLabel" android:text="Home" android:textColor="@color/mm_primary" android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navAppointments" style="@style/MmNavItem">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="Appointments" android:src="@drawable/mm_ic_calendar" app:tint="@color/mm_muted" />
+            <TextView style="@style/MmNavLabel" android:text="Appointments" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navQueue" style="@style/MmNavItem">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="Queue" android:src="@drawable/mm_ic_clock" app:tint="@color/mm_muted" />
+            <TextView style="@style/MmNavLabel" android:text="Queue" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navProfile" style="@style/MmNavItem">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:contentDescription="Profile" android:src="@drawable/mm_ic_person" app:tint="@color/mm_muted" />
+            <TextView style="@style/MmNavLabel" android:text="Profile" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+
