@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/mm_resources.xml  (NEW file, all names prefixed "mm" so nothing clashes) -->
+<resources>
+    <color name="mm_primary">#0E7C86</color>
+    <color name="mm_primary_dark">#0A5A62</color>
+    <color name="mm_accent">#2EC4B6</color>
+    <color name="mm_bg">#F2F7F8</color>
+    <color name="mm_text">#1B2B34</color>
+    <color name="mm_muted">#6B7C85</color>
+    <color name="mm_danger">#D64545</color>
+    <color name="mm_danger_dark">#B02A2A</color>
+    <color name="mm_white">#FFFFFF</color>
+
+    <color name="mm_teal_bg">#DFF5F3</color>
+    <color name="mm_teal">#0E9488</color>
+    <color name="mm_blue_bg">#E3EEFF</color>
+    <color name="mm_blue">#2F6FED</color>
+    <color name="mm_orange_bg">#FFEBDD</color>
+    <color name="mm_orange">#F27A21</color>
+    <color name="mm_purple_bg">#EEE6FF</color>
+    <color name="mm_purple">#7A4DE0</color>
+    <color name="mm_pink_bg">#FFE4EC</color>
+    <color name="mm_pink">#E0457B</color>
+    <color name="mm_amber_bg">#FFF3D1</color>
+    <color name="mm_amber">#D99A00</color>
+    <color name="mm_green_bg">#E0F7E6</color>
+    <color name="mm_green">#2E9E4F</color>
+    <color name="mm_slate_bg">#E8EDF0</color>
+    <color name="mm_slate">#51626C</color>
+
+    <!-- Feature card -->
+    <style name="MmCard">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">6dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:minHeight">136dp</item>
+        <item name="android:background">@drawable/mm_bg_card</item>
+        <item name="android:elevation">3dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="MmIcon">
+        <item name="android:layout_width">46dp</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:padding">11dp</item>
+        <item name="android:background">@drawable/mm_bg_icon_circle</item>
+    </style>
+
+    <style name="MmCardTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:textColor">@color/mm_text</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MmCardDesc">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:textColor">@color/mm_muted</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="MmSectionTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">@color/mm_text</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MmChip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">18dp</item>
+        <item name="android:paddingEnd">18dp</item>
+        <item name="android:background">@drawable/mm_bg_chip</item>
+        <item name="android:textColor">@color/mm_primary_dark</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="MmNavItem">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="MmNavLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/mm_muted</item>
+    </style>
+</resources>

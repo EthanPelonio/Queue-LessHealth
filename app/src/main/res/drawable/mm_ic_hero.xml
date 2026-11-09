@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clinic illustration shown in the header -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="140dp"
+    android:height="140dp"
+    android:viewportWidth="160"
+    android:viewportHeight="160">
+    <!-- soft circle behind the building -->
+    <path
+        android:fillColor="#26FFFFFF"
+        android:pathData="M80,80m-74,0a74,74 0,1 1,148 0a74,74 0,1 1,-148 0" />
+    <!-- building body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M42,70h76v64h-76z" />
+    <!-- roof -->
+    <path
+        android:fillColor="#DFF5F3"
+        android:pathData="M36,72L80,38L124,72z" />
+    <!-- red cross on roof -->
+    <path
+        android:fillColor="#D64545"
+        android:pathData="M77,46h6v7h7v6h-7v7h-6v-7h-7v-6h7z" />
+    <!-- windows -->
+    <path
+        android:fillColor="#2EC4B6"
+        android:pathData="M52,84h16v16h-16z" />
+    <path
+        android:fillColor="#2EC4B6"
+        android:pathData="M92,84h16v16h-16z" />
+    <!-- door -->
+    <path
+        android:fillColor="#0E7C86"
+        android:pathData="M69,134v-28h22v28z" />
+    <!-- ground -->
+    <path
+        android:fillColor="#40FFFFFF"
+        android:pathData="M30,134h100v6h-100z" />
+</vector>
