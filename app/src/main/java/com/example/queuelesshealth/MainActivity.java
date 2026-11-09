@@ -1,274 +1,216 @@
 package com.example.queuelesshealth;
 
+import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
+import java.util.Calendar;
+
+/**
+ * Queue-Less Health main menu.
+ *
+ * Screens are opened by class NAME, so this file compiles even if a screen
+ * doesn't exist yet (a "coming soon" message shows instead). Add your own
+ * activity names to the candidate lists below if yours are named differently.
+ */
 public class MainActivity extends AppCompatActivity {
 
-    // 1. UI COMPONENT DECLARATIONS
-    private ImageView btnBack;
-    private TextView tvGreeting;
+    // Session data (your Login / Booking screens should save these)
+    private static final String PREFS = "qlh_session";
+    private static final String KEY_NAME = "user_name";
+    private static final String KEY_QUEUE_NO = "queue_number";   // int, 0 = none
+    private static final String KEY_QUEUE_DOC = "queue_doctor";  // String
+    private static final String KEY_QUEUE_AHEAD = "queue_ahead"; // int
 
-    // Filter Tabs
-    private Button btnPending, btnAccepted, btnRejected;
+    private static final String[] TIPS = {
+            "Drink at least 8 glasses of water today.",
+            "A 20-minute walk a day keeps the heart happy.",
+            "Wash your hands often to avoid catching colds.",
+            "Aim for 7-8 hours of sleep tonight.",
+            "Take a screen break every 20 minutes to rest your eyes.",
+            "Add one more fruit or vegetable to your meals today.",
+            "Arrive 10 minutes early to your appointment."
+    };
 
-    // Patient Card 1
-    private CardView cardPatient1;
-    private TextView tvPatient1Name, tvPatient1Type, tvPatient1Reason, tvPatient1Time;
-    private LinearLayout layoutPatient1Actions;
-    private Button btnAccept1, btnReject1;
-
-    // Patient Card 2
-    private CardView cardPatient2;
-    private TextView tvPatient2Name, tvPatient2Type, tvPatient2Reason, tvPatient2Time;
-    private LinearLayout layoutPatient2Actions;
-    private Button btnAccept2, btnReject2;
-
-    // Empty State View
-    private TextView tvEmptyState;
-
-    // Bottom Navigation
-    private Button navHome, navAppointment, navQueue, navProfile;
-
-    // DATA TRACKING & CAPTURE VARIABLES
-    private String currentTab = "PENDING";
-    private String statusPatient1 = "PENDING";
-    private String statusPatient2 = "PENDING";
-    private String userEmail = "";
+    private TextView tvGreeting, tvSubGreeting, tvQueueStatus, tvQueueDetail, tvQueueNumber, tvTip;
+    private View layoutAuth, btnLogout;
+    private ScrollView scrollMain;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main_2);
+        setContentView(R.layout.activity_main_6);
 
-        // 1. INITIALIZATION OF VIEWS
-        initViews();
+        prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE);
 
-        // 2. DATA CAPTURE FROM INTENT
-        captureIntentData();
-
-        // 3. SETUP EVENT LISTENERS
-        setupEventListeners();
-
-        // 4. INITIAL UI STATE REFRESH
-        updateTabSelection(currentTab);
-    }
-
-    private void initViews() {
-        // Header & Greeting
-        btnBack = findViewById(R.id.btnBack);
+        scrollMain = findViewById(R.id.scrollMain);
         tvGreeting = findViewById(R.id.tvGreeting);
+        tvSubGreeting = findViewById(R.id.tvSubGreeting);
+        tvQueueStatus = findViewById(R.id.tvQueueStatus);
+        tvQueueDetail = findViewById(R.id.tvQueueDetail);
+        tvQueueNumber = findViewById(R.id.tvQueueNumber);
+        tvTip = findViewById(R.id.tvTip);
+        layoutAuth = findViewById(R.id.layoutAuth);
+        btnLogout = findViewById(R.id.btnLogout);
 
-        // Tabs
-        btnPending = findViewById(R.id.btnPending);
-        btnAccepted = findViewById(R.id.btnAccepted);
-        btnRejected = findViewById(R.id.btnRejected);
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
+        tvTip.setText(TIPS[day % TIPS.length]);
 
-        // Patient Card 1
-        cardPatient1 = findViewById(R.id.cardPatient1);
-        tvPatient1Name = findViewById(R.id.tvPatient1Name);
-        tvPatient1Type = findViewById(R.id.tvPatient1Type);
-        tvPatient1Reason = findViewById(R.id.tvPatient1Reason);
-        tvPatient1Time = findViewById(R.id.tvPatient1Time);
-        layoutPatient1Actions = findViewById(R.id.layoutPatient1Actions);
-        btnAccept1 = findViewById(R.id.btnAccept1);
-        btnReject1 = findViewById(R.id.btnReject1);
-
-        // Patient Card 2
-        cardPatient2 = findViewById(R.id.cardPatient2);
-        tvPatient2Name = findViewById(R.id.tvPatient2Name);
-        tvPatient2Type = findViewById(R.id.tvPatient2Type);
-        tvPatient2Reason = findViewById(R.id.tvPatient2Reason);
-        tvPatient2Time = findViewById(R.id.tvPatient2Time);
-        layoutPatient2Actions = findViewById(R.id.layoutPatient2Actions);
-        btnAccept2 = findViewById(R.id.btnAccept2);
-        btnReject2 = findViewById(R.id.btnReject2);
-
-        // Empty State
-        tvEmptyState = findViewById(R.id.tvEmptyState);
-
-        // Navigation
-        navHome = findViewById(R.id.navHome);
-        navAppointment = findViewById(R.id.navAppointment);
-        navQueue = findViewById(R.id.navQueue);
-        navProfile = findViewById(R.id.navProfile);
+        setupClicks();
     }
 
-    private void captureIntentData() {
-        Intent intent = getIntent();
-        if (intent != null && intent.hasExtra("USER_EMAIL")) {
-            userEmail = intent.getStringExtra("USER_EMAIL");
-            if (userEmail != null && !userEmail.isEmpty()) {
-                String greeting = "Hello, Doctor (" + userEmail + ").";
-                tvGreeting.setText(greeting);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshUi();
+    }
+
+    private boolean isLoggedIn() {
+        return prefs.getString(KEY_NAME, null) != null;
+    }
+
+    private void refreshUi() {
+        if (isLoggedIn()) {
+            tvGreeting.setText("Hello, " + prefs.getString(KEY_NAME, "") + "!");
+            tvSubGreeting.setText("Welcome back. How can we help today?");
+            layoutAuth.setVisibility(View.GONE);
+            btnLogout.setVisibility(View.VISIBLE);
+        } else {
+            tvGreeting.setText("Hello, Guest!");
+            tvSubGreeting.setText("Skip the waiting room. Book, track and get seen.");
+            layoutAuth.setVisibility(View.VISIBLE);
+            btnLogout.setVisibility(View.GONE);
+        }
+
+        int queueNo = prefs.getInt(KEY_QUEUE_NO, 0);
+        if (isLoggedIn() && queueNo > 0) {
+            int ahead = prefs.getInt(KEY_QUEUE_AHEAD, 0);
+            String doctor = prefs.getString(KEY_QUEUE_DOC, "your doctor");
+            tvQueueNumber.setText(String.valueOf(queueNo));
+            tvQueueStatus.setText(ahead == 0 ? "You're next!" : ahead + " patient(s) ahead of you");
+            tvQueueDetail.setText("Waiting for " + doctor + " - est. " + (ahead * 10) + " min");
+        } else {
+            tvQueueNumber.setText("--");
+            tvQueueStatus.setText("No active appointment");
+            tvQueueDetail.setText("Book an appointment to get a queue number.");
+        }
+    }
+
+    private void setupClicks() {
+        findViewById(R.id.btnLogin).setOnClickListener(v ->
+                openScreen("Login", null, "LoginActivity", "Login"));
+        findViewById(R.id.btnRegister).setOnClickListener(v ->
+                openScreen("Register", null, "RegisterActivity", "Register"));
+        btnLogout.setOnClickListener(v -> confirmLogout());
+
+        // Open to everyone
+        findViewById(R.id.cardDoctors).setOnClickListener(v ->
+                openScreen("Find a Doctor", null, "FindAdoctor", "FindADoctor", "DoctorSearchActivity"));
+        findViewById(R.id.cardHelp).setOnClickListener(v ->
+                openScreen("Help & About", null, "HelpActivity"));
+
+        // Need an account
+        findViewById(R.id.cardBook).setOnClickListener(v ->
+                requireLogin("Book Appointment", "BookAppointmentActivity", "BookAppointment"));
+        findViewById(R.id.cardQueue).setOnClickListener(v ->
+                requireLogin("My Queue", "QueueActivity", "Queue"));
+        findViewById(R.id.cardQueueStatus).setOnClickListener(v ->
+                requireLogin("My Queue", "QueueActivity", "Queue"));
+        findViewById(R.id.cardAppointments).setOnClickListener(v ->
+                requireLogin("My Appointments", "AppointmentsActivity", "Appointments"));
+        findViewById(R.id.cardDashboard).setOnClickListener(v ->
+                requireLogin("Dashboard", "DoctorDashboard", "DashboardActivity"));
+        findViewById(R.id.cardNotifications).setOnClickListener(v ->
+                requireLogin("Notifications", "NotificationsActivity"));
+        findViewById(R.id.cardProfile).setOnClickListener(v ->
+                requireLogin("My Profile", "ProfileActivity"));
+
+        // Bottom navigation
+        findViewById(R.id.navHome).setOnClickListener(v -> scrollMain.smoothScrollTo(0, 0));
+        findViewById(R.id.navAppointments).setOnClickListener(v ->
+                requireLogin("My Appointments", "AppointmentsActivity", "Appointments"));
+        findViewById(R.id.navQueue).setOnClickListener(v ->
+                requireLogin("My Queue", "QueueActivity", "Queue"));
+        findViewById(R.id.navProfile).setOnClickListener(v ->
+                requireLogin("My Profile", "ProfileActivity"));
+
+        // Specialty chips -> Find a Doctor with the chosen specialty
+        int[] chipIds = {R.id.chipGeneral, R.id.chipPediatrics, R.id.chipDental,
+                R.id.chipCardiology, R.id.chipEye, R.id.chipDerma};
+        for (int id : chipIds) {
+            findViewById(id).setOnClickListener(v -> {
+                String specialty = ((TextView) v).getText().toString();
+                openScreen("Find a Doctor", specialty, "FindAdoctor", "FindADoctor", "DoctorSearchActivity");
+            });
+        }
+
+        findViewById(R.id.btnEmergency).setOnClickListener(v -> confirmEmergency());
+    }
+
+    private void requireLogin(String label, String... candidates) {
+        if (isLoggedIn()) {
+            openScreen(label, null, candidates);
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Please log in")
+                    .setMessage("You need an account to use \"" + label + "\".")
+                    .setPositiveButton("Login", (d, w) -> openScreen("Login", null, "LoginActivity", "Login"))
+                    .setNeutralButton("Register", (d, w) -> openScreen("Register", null, "RegisterActivity", "Register"))
+                    .setNegativeButton("Cancel", null)
+                    .show();
+        }
+    }
+
+    /** Tries each class name in this package; shows a message if none exist yet. */
+    private void openScreen(String label, String specialty, String... candidates) {
+        String pkg = getClass().getPackage().getName();
+        for (String name : candidates) {
+            try {
+                Class<?> target = Class.forName(pkg + "." + name);
+                Intent intent = new Intent(this, target);
+                if (specialty != null) {
+                    intent.putExtra("specialty", specialty);
+                }
+                startActivity(intent);
+                return;
+            } catch (ClassNotFoundException ignored) {
+                // try next name
             }
         }
+        String extra = specialty != null ? " (" + specialty + ")" : "";
+        Toast.makeText(this, label + extra + " screen coming soon", Toast.LENGTH_SHORT).show();
     }
 
-    private void setupEventListeners() {
-        // Back Button Event Listener
-        btnBack.setOnClickListener(v -> {
-            Toast.makeText(MainActivity.this, "Logging out...", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this, Login.class);
-            startActivity(intent);
-            finish();
-        });
-
-        // Tab Event Listeners
-        btnPending.setOnClickListener(v -> {
-            currentTab = "PENDING";
-            updateTabSelection(currentTab);
-            Toast.makeText(MainActivity.this, "Viewing Pending Appointments", Toast.LENGTH_SHORT).show();
-        });
-
-        btnAccepted.setOnClickListener(v -> {
-            currentTab = "ACCEPTED";
-            updateTabSelection(currentTab);
-            Toast.makeText(MainActivity.this, "Viewing Accepted Appointments", Toast.LENGTH_SHORT).show();
-        });
-
-        btnRejected.setOnClickListener(v -> {
-            currentTab = "REJECTED";
-            updateTabSelection(currentTab);
-            Toast.makeText(MainActivity.this, "Viewing Rejected Appointments", Toast.LENGTH_SHORT).show();
-        });
-
-        // Patient 1 Action Listeners & Data Capture
-        btnAccept1.setOnClickListener(v -> {
-            statusPatient1 = "ACCEPTED";
-            String name = tvPatient1Name.getText().toString();
-            String type = tvPatient1Type.getText().toString();
-            String reason = tvPatient1Reason.getText().toString();
-            String time = tvPatient1Time.getText().toString();
-
-            Toast.makeText(MainActivity.this, "Accepted " + type + " patient: " + name + " (" + reason + ", " + time + ")", Toast.LENGTH_SHORT).show();
-            updateCardVisibilities();
-        });
-
-        btnReject1.setOnClickListener(v -> {
-            statusPatient1 = "REJECTED";
-            String name = tvPatient1Name.getText().toString();
-            Toast.makeText(MainActivity.this, "Rejected appointment for " + name, Toast.LENGTH_SHORT).show();
-            updateCardVisibilities();
-        });
-
-        // Patient 2 Action Listeners & Data Capture
-        btnAccept2.setOnClickListener(v -> {
-            statusPatient2 = "ACCEPTED";
-            String name = tvPatient2Name.getText().toString();
-            String type = tvPatient2Type.getText().toString();
-            String reason = tvPatient2Reason.getText().toString();
-            String time = tvPatient2Time.getText().toString();
-
-            Toast.makeText(MainActivity.this, "Accepted " + type + " patient: " + name + " (" + reason + ", " + time + ")", Toast.LENGTH_SHORT).show();
-            updateCardVisibilities();
-        });
-
-        btnReject2.setOnClickListener(v -> {
-            statusPatient2 = "REJECTED";
-            String name = tvPatient2Name.getText().toString();
-            Toast.makeText(MainActivity.this, "Rejected appointment for " + name, Toast.LENGTH_SHORT).show();
-            updateCardVisibilities();
-        });
-
-        // Bottom Navigation Listeners
-        navHome.setOnClickListener(v -> {
-            setNavActiveButton(navHome);
-            Toast.makeText(MainActivity.this, "Home Dashboard", Toast.LENGTH_SHORT).show();
-        });
-
-        navAppointment.setOnClickListener(v -> {
-            setNavActiveButton(navAppointment);
-            Toast.makeText(MainActivity.this, "Appointments Section", Toast.LENGTH_SHORT).show();
-        });
-
-        navQueue.setOnClickListener(v -> {
-            setNavActiveButton(navQueue);
-            Toast.makeText(MainActivity.this, "Queue Overview", Toast.LENGTH_SHORT).show();
-        });
-
-        navProfile.setOnClickListener(v -> {
-            setNavActiveButton(navProfile);
-            Toast.makeText(MainActivity.this, "Doctor Profile", Toast.LENGTH_SHORT).show();
-        });
+    private void confirmLogout() {
+        new AlertDialog.Builder(this)
+                .setTitle("Log out")
+                .setMessage("Are you sure you want to log out?")
+                .setPositiveButton("Log out", (d, w) -> {
+                    prefs.edit().clear().apply();
+                    refreshUi();
+                    Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
     }
 
-    private void updateTabSelection(String selectedTab) {
-        int activeBg = Color.parseColor("#2E7D32");
-        int activeText = Color.WHITE;
-        int inactiveBg = Color.parseColor("#E3F2FD");
-        int inactiveText = Color.parseColor("#0D47A1");
-
-        btnPending.setBackgroundTintList(ColorStateList.valueOf("PENDING".equals(selectedTab) ? activeBg : inactiveBg));
-        btnPending.setTextColor("PENDING".equals(selectedTab) ? activeText : inactiveText);
-
-        btnAccepted.setBackgroundTintList(ColorStateList.valueOf("ACCEPTED".equals(selectedTab) ? activeBg : inactiveBg));
-        btnAccepted.setTextColor("ACCEPTED".equals(selectedTab) ? activeText : inactiveText);
-
-        btnRejected.setBackgroundTintList(ColorStateList.valueOf("REJECTED".equals(selectedTab) ? activeBg : inactiveBg));
-        btnRejected.setTextColor("REJECTED".equals(selectedTab) ? activeText : inactiveText);
-
-        updateCardVisibilities();
-    }
-
-    private void updateCardVisibilities() {
-        boolean isCard1Visible = statusPatient1.equalsIgnoreCase(currentTab);
-        boolean isCard2Visible = statusPatient2.equalsIgnoreCase(currentTab);
-
-        cardPatient1.setVisibility(isCard1Visible ? View.VISIBLE : View.GONE);
-        cardPatient2.setVisibility(isCard2Visible ? View.VISIBLE : View.GONE);
-
-        // Hide action buttons if the card is already Accepted or Rejected
-        if (!"PENDING".equals(statusPatient1)) {
-            layoutPatient1Actions.setVisibility(View.GONE);
-        } else {
-            layoutPatient1Actions.setVisibility(View.VISIBLE);
-        }
-
-        if (!"PENDING".equals(statusPatient2)) {
-            layoutPatient2Actions.setVisibility(View.GONE);
-        } else {
-            layoutPatient2Actions.setVisibility(View.VISIBLE);
-        }
-
-        // Show empty state if no cards match the active tab filter
-        if (!isCard1Visible && !isCard2Visible) {
-            String emptyMsg = "No " + currentTab.toLowerCase() + " appointments.";
-            tvEmptyState.setText(emptyMsg);
-            tvEmptyState.setVisibility(View.VISIBLE);
-        } else {
-            tvEmptyState.setVisibility(View.GONE);
-        }
-    }
-
-    private void setNavActiveButton(Button activeButton) {
-        int activeBg = Color.parseColor("#2E7D32");
-        int activeText = Color.WHITE;
-        int inactiveBg = Color.parseColor("#E3F2FD");
-        int inactiveText = Color.parseColor("#0D47A1");
-
-        Button[] navButtons = {navHome, navAppointment, navQueue, navProfile};
-        for (Button btn : navButtons) {
-            if (btn == activeButton) {
-                btn.setBackgroundTintList(ColorStateList.valueOf(activeBg));
-                btn.setTextColor(activeText);
-            } else {
-                btn.setBackgroundTintList(ColorStateList.valueOf(inactiveBg));
-                btn.setTextColor(inactiveText);
-            }
-        }
+    private void confirmEmergency() {
+        new AlertDialog.Builder(this)
+                .setTitle("Emergency")
+                .setMessage("This opens your phone dialer with 911. Continue?")
+                .setPositiveButton("Open dialer", (d, w) ->
+                        startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:911"))))
+                .setNegativeButton("Cancel", null)
+                .show();
     }
 }
