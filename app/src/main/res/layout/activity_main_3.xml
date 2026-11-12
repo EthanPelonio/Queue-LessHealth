@@ -328,3 +328,37 @@
             app:layout_constraintTop_toBottomOf="@id/queueRowBackground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Back Home -->
+        <Button
+            android:id="@+id/btnBackHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="54dp"
+            android:layout_marginTop="12dp"
+            android:text="BACK TO HOME"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#303030"
+            app:layout_constraintTop_toBottomOf="@id/btnViewQueueStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Done -->
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="54dp"
+            android:layout_marginTop="12dp"
+            android:text="DONE"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#E88A20"
+            app:layout_constraintTop_toBottomOf="@id/btnBackHome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
