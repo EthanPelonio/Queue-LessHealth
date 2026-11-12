@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Calendar;
 
 /** * Queue-Less Health main menu. */
-public class MainActivity extends AppCompatActivity {
+public class MainMenu extends AppCompatActivity {
 
     // Session data (your Login / Booking screens should save these)
     private static final String PREFS = "qlh_session";

@@ -8,8 +8,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.queuelesshealth.R;
-
 public class Login extends AppCompatActivity {
 
     EditText etEmail, etPassword;
@@ -52,7 +50,7 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(this, "Welcome, " + email + "!", Toast.LENGTH_SHORT).show();
                 
                 // 4. INTENT NAVIGATION TO MAIN ACTIVITY
-                Intent intent = new Intent(Login.this, MainActivity.class);
+                Intent intent = new Intent(Login.this, MainMenu.class);
                 intent.putExtra("USER_EMAIL", email);
                 startActivity(intent);
                 finish();
