@@ -1,397 +1,772 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#F5F9FC">
+    android:background="#F2FAF9"
+    android:orientation="vertical">
 
-    <!-- Top Bar -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical"
-        android:background="#FFFFFF">
-
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@android:drawable/ic_menu_revert"
-            android:contentDescription="Back"
-            app:tint="#1565C0"
-            android:padding="4dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:text="Doctor Dashboard"
-            android:textColor="#C62828"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="180dp"
-            android:layout_height="115dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/firefly_removebackground" />
-    </LinearLayout>
-
-    <!-- Greeting -->
-    <TextView
-        android:id="@+id/tvGreeting"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:background="#FFFFFF"
-        android:padding="16dp"
-        android:text="Hello, Doctor."
-        android:textColor="#0D47A1"
-        android:textSize="18sp" />
-
-    <!-- Tabs -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingHorizontal="12dp"
-        android:paddingBottom="8dp">
-
-        <Button
-            android:id="@+id/btnPending"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:text="PENDING"
-            android:textSize="13sp"
-            android:backgroundTint="#2E7D32"
-            android:textColor="#FFFFFF"
-            android:layout_marginEnd="6dp" />
-
-        <Button
-            android:id="@+id/btnAccepted"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:text="ACCEPTED"
-            android:textSize="13sp"
-            android:backgroundTint="#E3F2FD"
-            android:textColor="#0D47A1"
-            android:layout_marginEnd="6dp" />
-
-        <Button
-            android:id="@+id/btnRejected"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:text="REJECTED"
-            android:textSize="13sp"
-            android:backgroundTint="#E3F2FD"
-            android:textColor="#0D47A1" />
-    </LinearLayout>
-
-    <!-- Scrollable Content -->
     <ScrollView
+        android:id="@+id/scrollRoot"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="12dp">
+        android:overScrollMode="never"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Patient Card 1 -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardPatient1"
+            <!-- ================= HEADER ================= -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#FFFFFF">
+                android:layout_marginTop="-40dp"
+                app:cardBackgroundColor="#0E9488"
+                app:cardCornerRadius="36dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
+                    android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@android:drawable/ic_menu_myplaces"
-                        android:background="#BBDEFB"
-                        android:scaleType="centerInside"
-                        android:contentDescription="Patient photo" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="190dp"
+                        android:layout_height="190dp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="-60dp"
+                        app:cardBackgroundColor="#1FFFFFFF"
+                        app:cardCornerRadius="95dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="bottom|start"
+                        android:layout_marginStart="-45dp"
+                        android:layout_marginBottom="-25dp"
+                        app:cardBackgroundColor="#1AFFFFFF"
+                        app:cardCornerRadius="60dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp" />
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:orientation="vertical"
-                        android:layout_marginStart="12dp">
+                        android:paddingStart="24dp"
+                        android:paddingTop="96dp"
+                        android:paddingEnd="24dp"
+                        android:paddingBottom="64dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
-                            <TextView
-                                android:id="@+id/tvPatient1Name"
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/btnBack"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                app:cardBackgroundColor="#2EFFFFFF"
+                                app:cardCornerRadius="20dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="0dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:importantForAccessibility="no"
+                                    android:text="←"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="20sp" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <View
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Patient 2"
-                                android:textColor="#0D47A1"
-                                android:textSize="17sp"
-                                android:textStyle="bold" />
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                app:cardBackgroundColor="#FFFFFF"
+                                app:cardCornerRadius="6dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="0dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:importantForAccessibility="no"
+                                    android:text="+"
+                                    android:textColor="#0E9488"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </com.google.android.material.card.MaterialCardView>
 
                             <TextView
-                                android:id="@+id/tvPatient1Type"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="REGULAR"
-                                android:textSize="11sp"
-                                android:textColor="#1B5E20"
-                                android:background="#C8E6C9"
-                                android:paddingHorizontal="8dp"
-                                android:paddingVertical="4dp" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:id="@+id/tvPatient1Reason"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Reason: General Checkup"
-                            android:textColor="#212121"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvPatient1Time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="July 25, 2026: 9:00 AM"
-                            android:textSize="13sp"
-                            android:textColor="#424242"
-                            android:layout_marginTop="2dp" />
-
-                        <LinearLayout
-                            android:id="@+id/layoutPatient1Actions"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="10dp">
-
-                            <Button
-                                android:id="@+id/btnAccept1"
-                                android:layout_width="0dp"
-                                android:layout_height="48dp"
-                                android:layout_weight="1"
-                                android:text="ACCEPT"
-                                android:textSize="13sp"
-                                android:backgroundTint="#2E7D32"
-                                android:textColor="#FFFFFF"
-                                android:layout_marginEnd="8dp" />
-
-                            <Button
-                                android:id="@+id/btnReject1"
-                                android:layout_width="0dp"
-                                android:layout_height="48dp"
-                                android:layout_weight="1"
-                                android:text="REJECT"
-                                android:textSize="13sp"
-                                android:backgroundTint="#546E7A"
-                                android:textColor="#FFFFFF" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Patient Card 2 -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardPatient2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#FFFFFF">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@android:drawable/ic_menu_myplaces"
-                        android:background="#BBDEFB"
-                        android:scaleType="centerInside"
-                        android:contentDescription="Patient photo" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginStart="12dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
-
-                            <TextView
-                                android:id="@+id/tvPatient2Name"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Patient 1"
-                                android:textColor="#0D47A1"
-                                android:textSize="17sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tvPatient2Type"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="PRIORITY"
-                                android:textSize="11sp"
-                                android:textColor="#FFFFFF"
-                                android:background="#C62828"
-                                android:paddingHorizontal="8dp"
-                                android:paddingVertical="4dp" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:id="@+id/tvPatient2Reason"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Reason: Chest Pain Follow-up"
-                            android:textColor="#212121"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvPatient2Time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="July 25, 2026: 10:00 AM"
-                            android:textSize="13sp"
-                            android:textColor="#424242"
-                            android:layout_marginTop="2dp" />
-
-                        <LinearLayout
-                            android:id="@+id/layoutPatient2Actions"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="10dp">
-
-                            <Button
-                                android:id="@+id/btnAccept2"
-                                android:layout_width="0dp"
-                                android:layout_height="48dp"
-                                android:layout_weight="1"
-                                android:backgroundTint="#2E7D32"
-                                android:text="ACCEPT"
-                                android:textColor="#FFFFFF"
-                                android:textSize="13sp"
-                                android:layout_marginEnd="8dp" />
-
-                            <Button
-                                android:id="@+id/btnReject2"
-                                android:layout_width="0dp"
-                                android:layout_height="48dp"
-                                android:layout_weight="1"
-                                android:backgroundTint="#546E7A"
-                                android:text="REJECT"
+                                android:layout_marginStart="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Queue-Less Health"
                                 android:textColor="#FFFFFF"
                                 android:textSize="13sp" />
                         </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
 
-            <!-- Empty State View -->
-            <TextView
-                android:id="@+id/tvEmptyState"
+                        <TextView
+                            android:id="@+id/tvGreeting"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="26dp"
+                            android:text="Hello, Doctor."
+                            android:textColor="#D9F3F0"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Doctor Dashboard"
+                            android:textColor="#FFFFFF"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:lineSpacingExtra="2dp"
+                            android:text="Review and respond to your patients' appointment requests."
+                            android:textColor="#D9F3F0"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ================= STATUS TABS ================= -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-32dp"
+                android:layout_marginEnd="20dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:strokeColor="#D5E7E4"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="6dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/tabPending"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="#0E9488"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tabPendingLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Pending"
+                                android:textColor="#FFFFFF"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tabPendingCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2"
+                                android:textColor="#CFF1ED"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/tabAccepted"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="#00000000"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tabAcceptedLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Accepted"
+                                android:textColor="#5E7C79"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tabAcceptedCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#9AB3B0"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/tabRejected"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="#00000000"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tabRejectedLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Rejected"
+                                android:textColor="#5E7C79"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tabRejectedCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#9AB3B0"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ================= SECTION HEADER ================= -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="32dp"
-                android:text="No appointments found for this category."
-                android:textColor="#757575"
-                android:textSize="16sp"
-                android:visibility="gone" />
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Appointment requests"
+                    android:textColor="#12302D"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvRequestCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="2 pending"
+                    android:textColor="#0E9488"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- ================= PATIENT 2 ================= -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPatient2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="20dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#D5E7E4"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:cardBackgroundColor="#D6F2EE"
+                            app:cardCornerRadius="28dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="sans-serif-medium"
+                                android:gravity="center"
+                                android:text="P2"
+                                android:textColor="#0E9488"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvPatientName2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Patient 2"
+                                    android:textColor="#12302D"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:cardBackgroundColor="#DDF5E8"
+                                    app:cardCornerRadius="10dp"
+                                    app:cardElevation="0dp"
+                                    app:strokeWidth="0dp">
+
+                                    <TextView
+                                        android:id="@+id/tvPriority2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif-medium"
+                                        android:paddingStart="10dp"
+                                        android:paddingTop="4dp"
+                                        android:paddingEnd="10dp"
+                                        android:paddingBottom="4dp"
+                                        android:text="REGULAR"
+                                        android:textColor="#15803D"
+                                        android:textSize="10sp" />
+                                </com.google.android.material.card.MaterialCardView>
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvReason2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Reason: General Checkup"
+                                android:textColor="#5E7C79"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tvDateTime2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="🗓  July 25, 2026 · 9:00 AM"
+                                android:textColor="#12302D"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="14dp"
+                        android:background="#E4F0EE" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnAccept2"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#0E9488"
+                            android:fontFamily="sans-serif-medium"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:text="Accept"
+                            android:textAllCaps="false"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            app:cornerRadius="14dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnReject2"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-medium"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:text="Reject"
+                            android:textAllCaps="false"
+                            android:textColor="#D93B3B"
+                            android:textSize="14sp"
+                            app:cornerRadius="14dp"
+                            app:strokeColor="#F1B8B8"
+                            app:strokeWidth="1.5dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ================= PATIENT 1 ================= -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPatient1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#D5E7E4"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:cardBackgroundColor="#FCE4EF"
+                            app:cardCornerRadius="28dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="sans-serif-medium"
+                                android:gravity="center"
+                                android:text="P1"
+                                android:textColor="#DB2777"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvPatientName1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Patient 1"
+                                    android:textColor="#12302D"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:cardBackgroundColor="#FDE2E2"
+                                    app:cardCornerRadius="10dp"
+                                    app:cardElevation="0dp"
+                                    app:strokeWidth="0dp">
+
+                                    <TextView
+                                        android:id="@+id/tvPriority1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif-medium"
+                                        android:paddingStart="10dp"
+                                        android:paddingTop="4dp"
+                                        android:paddingEnd="10dp"
+                                        android:paddingBottom="4dp"
+                                        android:text="PRIORITY"
+                                        android:textColor="#B91C1C"
+                                        android:textSize="10sp" />
+                                </com.google.android.material.card.MaterialCardView>
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvReason1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Reason: Chest Pain Follow-up"
+                                android:textColor="#5E7C79"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tvDateTime1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="🗓  July 25, 2026 · 10:00 AM"
+                                android:textColor="#12302D"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="14dp"
+                        android:background="#E4F0EE" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnAccept1"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#0E9488"
+                            android:fontFamily="sans-serif-medium"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:text="Accept"
+                            android:textAllCaps="false"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            app:cornerRadius="14dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnReject1"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-medium"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:text="Reject"
+                            android:textAllCaps="false"
+                            android:textColor="#D93B3B"
+                            android:textSize="14sp"
+                            app:cornerRadius="14dp"
+                            app:strokeColor="#F1B8B8"
+                            app:strokeWidth="1.5dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- Bottom Navigation -->
+    <!-- ================= BOTTOM NAVIGATION ================= -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D5E7E4" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="#FFFFFF"
-        android:paddingVertical="8dp"
-        android:elevation="8dp">
+        android:orientation="horizontal"
+        android:paddingBottom="12dp">
 
-        <Button
+        <LinearLayout
             android:id="@+id/navHome"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="64dp"
             android:layout_weight="1"
-            android:text="Home"
-            android:textSize="12sp"
-            android:backgroundTint="#2E7D32"
-            android:textColor="#FFFFFF"
-            android:layout_marginHorizontal="4dp" />
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/navAppointment"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏠"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Home"
+                android:textColor="#0E9488"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navAppointments"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginHorizontal="4dp"
+            android:layout_height="64dp"
             android:layout_weight="1"
-            android:backgroundTint="#E3F2FD"
-            android:text="Appointment"
-            android:textColor="#0D47A1"
-            android:textSize="12sp" />
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <Button
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:text="📅"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Appointments"
+                android:textColor="#9AB3B0"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/navQueue"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="64dp"
             android:layout_weight="1"
-            android:text="Queue"
-            android:textSize="12sp"
-            android:backgroundTint="#E3F2FD"
-            android:textColor="#0D47A1"
-            android:layout_marginHorizontal="4dp" />
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <Button
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:text="⏱️"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Queue"
+                android:textColor="#9AB3B0"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/navProfile"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginHorizontal="4dp"
+            android:layout_height="64dp"
             android:layout_weight="1"
-            android:backgroundTint="#E3F2FD"
-            android:text="Profile"
-            android:textColor="#0D47A1"
-            android:textSize="12sp" />
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:text="👤"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Profile"
+                android:textColor="#9AB3B0"
+                android:textSize="10sp" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
