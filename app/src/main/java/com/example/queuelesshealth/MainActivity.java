@@ -15,13 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
-/**
- * Queue-Less Health main menu.
- *
- * Screens are opened by class NAME, so this file compiles even if a screen
- * doesn't exist yet (a "coming soon" message shows instead). Add your own
- * activity names to the candidate lists below if yours are named differently.
- */
+/** * Queue-Less Health main menu. */
 public class MainActivity extends AppCompatActivity {
 
     // Session data (your Login / Booking screens should save these)
