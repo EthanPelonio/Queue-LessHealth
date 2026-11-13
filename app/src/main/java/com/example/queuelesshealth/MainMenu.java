@@ -15,12 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
-/**
- * Queue-Less Health main menu.
- */
+
 public class MainMenu extends AppCompatActivity {
 
-    // Session data (your Login / Booking screens should save these)
+
     private static final String PREFS = "qlh_session";
     private static final String KEY_NAME = "user_name";
     private static final String KEY_QUEUE_NO = "queue_number";   // int, 0 = none
@@ -109,14 +107,16 @@ public class MainMenu extends AppCompatActivity {
                 openScreen("Register", null, "RegisterActivity", "Register"));
         btnLogout.setOnClickListener(v -> confirmLogout());
 
-        BookingActivity (activity_main_8.xml)
+
         findViewById(R.id.cardBook).setOnClickListener(v ->
                 openScreen("Book Appointment", null, "BookingActivity", "BookAppointmentActivity", "BookAppointment"));
+
 
         findViewById(R.id.cardDoctors).setOnClickListener(v ->
                 openScreen("Find a Doctor", null, "FindAdoctor", "FindADoctor", "DoctorSearchActivity"));
         findViewById(R.id.cardHelp).setOnClickListener(v ->
                 openScreen("Help & About", null, "HelpActivity"));
+
 
         findViewById(R.id.cardQueue).setOnClickListener(v ->
                 requireLogin("My Queue", "QueueActivity", "Queue"));
@@ -131,7 +131,7 @@ public class MainMenu extends AppCompatActivity {
         findViewById(R.id.cardProfile).setOnClickListener(v ->
                 requireLogin("My Profile", "ProfileActivity"));
 
-        // Bottom navigation
+
         findViewById(R.id.navHome).setOnClickListener(v -> scrollMain.smoothScrollTo(0, 0));
         findViewById(R.id.navAppointments).setOnClickListener(v ->
                 requireLogin("My Appointments", "AppointmentsActivity", "Appointments"));
@@ -140,7 +140,7 @@ public class MainMenu extends AppCompatActivity {
         findViewById(R.id.navProfile).setOnClickListener(v ->
                 requireLogin("My Profile", "ProfileActivity"));
 
-        Find a Doctor with the chosen specialty
+
         int[] chipIds = {R.id.chipGeneral, R.id.chipPediatrics, R.id.chipDental,
                 R.id.chipCardiology, R.id.chipEye, R.id.chipDerma};
         for (int id : chipIds) {
@@ -167,6 +167,7 @@ public class MainMenu extends AppCompatActivity {
         }
     }
 
+
     private void openScreen(String label, String specialty, String... candidates) {
         String pkg = getClass().getPackage().getName();
         for (String name : candidates) {
@@ -179,7 +180,7 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(intent);
                 return;
             } catch (ClassNotFoundException ignored) {
-// try next name
+                // try next name
             }
         }
         String extra = specialty != null ? " (" + specialty + ")" : "";
@@ -207,6 +208,5 @@ public class MainMenu extends AppCompatActivity {
                         startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:911"))))
                 .setNegativeButton("Cancel", null)
                 .show();
-
     }
 }
