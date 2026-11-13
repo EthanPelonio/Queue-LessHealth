@@ -402,3 +402,23 @@
                     android:textColor="#91AAA6"
                     android:textSize="11sp" />
 
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- FOOTER -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:text="Queue-Less Health • Your health, our priority."
+            android:textColor="#91AAA6"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+</ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
