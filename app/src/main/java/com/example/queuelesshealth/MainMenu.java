@@ -166,3 +166,44 @@ public class MainMenu extends AppCompatActivity {
                     .show();
         }
     }
+
+    private void openScreen(String label, String specialty, String... candidates) {
+        String pkg = getClass().getPackage().getName();
+        for (String name : candidates) {
+            try {
+                Class<?> target = Class.forName(pkg + "." + name);
+                Intent intent = new Intent(this, target);
+                if (specialty != null) {
+                    intent.putExtra("specialty", specialty);
+                }
+                startActivity(intent);
+                return;
+            } catch (ClassNotFoundException ignored) {
+// try next name
+            }
+        }
+        String extra = specialty != null ? " (" + specialty + ")" : "";
+        Toast.makeText(this, label + extra + " screen coming soon", Toast.LENGTH_SHORT).show();
+    }
+
+    private void confirmLogout() {
+        new AlertDialog.Builder(this)
+                .setTitle("Log out")
+                .setMessage("Are you sure you want to log out?")
+                .setPositiveButton("Log out", (d, w) -> {
+                    prefs.edit().clear().apply();
+                    refreshUi();
+                    Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
+    private void confirmEmergency() {
+        new AlertDialog.Builder(this)
+                .setTitle("Emergency")
+                .setMessage("This opens your phone dialer with 911. Continue?")
+                .setPositiveButton("Open dialer", (d, w) ->
+                        startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:911"))))
+                .setNegativeButton("Cancel", null)
+                .show();
