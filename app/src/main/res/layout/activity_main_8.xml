@@ -187,3 +187,45 @@
                         android:maxLength="3"
                         android:textSize="14sp" />
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- GENDER -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="Gender"
+                    android:textColor="#526B68"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/booking_spinner_bg"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+
+                <!-- REASON -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilReason"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="Reason for appointment"
+                    app:boxCornerRadiusBottomEnd="13dp"
+                    app:boxCornerRadiusBottomStart="13dp"
+                    app:boxCornerRadiusTopEnd="13dp"
+                    app:boxCornerRadiusTopStart="13dp"
+                    app:boxStrokeColor="#0E9488">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etReason"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:gravity="top"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
