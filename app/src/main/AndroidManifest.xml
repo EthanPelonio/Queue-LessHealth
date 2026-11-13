@@ -41,6 +41,10 @@
             android:name=".FindAdoctor"
             android:exported="true" />
 
+        <activity
+            android:name=".BookingActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
