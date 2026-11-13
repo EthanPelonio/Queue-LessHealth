@@ -139,3 +139,30 @@ public class MainMenu extends AppCompatActivity {
                 requireLogin("My Queue", "QueueActivity", "Queue"));
         findViewById(R.id.navProfile).setOnClickListener(v ->
                 requireLogin("My Profile", "ProfileActivity"));
+
+        Find a Doctor with the chosen specialty
+        int[] chipIds = {R.id.chipGeneral, R.id.chipPediatrics, R.id.chipDental,
+                R.id.chipCardiology, R.id.chipEye, R.id.chipDerma};
+        for (int id : chipIds) {
+            findViewById(id).setOnClickListener(v -> {
+                String specialty = ((TextView) v).getText().toString();
+                openScreen("Find a Doctor", specialty, "FindAdoctor", "FindADoctor", "DoctorSearchActivity");
+            });
+        }
+
+        findViewById(R.id.btnEmergency).setOnClickListener(v -> confirmEmergency());
+    }
+
+    private void requireLogin(String label, String... candidates) {
+        if (isLoggedIn()) {
+            openScreen(label, null, candidates);
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Please log in")
+                    .setMessage("You need an account to use \"" + label + "\".")
+                    .setPositiveButton("Login", (d, w) -> openScreen("Login", null, "LoginActivity", "Login"))
+                    .setNeutralButton("Register", (d, w) -> openScreen("Register", null, "RegisterActivity", "Register"))
+                    .setNegativeButton("Cancel", null)
+                    .show();
+        }
+    }
