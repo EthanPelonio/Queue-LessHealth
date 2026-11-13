@@ -229,3 +229,102 @@
                         android:inputType="textCapSentences|textMultiLine"
                         android:textSize="14sp" />
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- DATE AND TIME -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="APPOINTMENT SCHEDULE"
+                    android:textColor="#0E9488"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.12" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="#F2FAF9"
+                    android:gravity="start|center_vertical"
+                    android:text="Select Appointment Date"
+                    android:textAllCaps="false"
+                    android:textColor="#315D59"
+                    app:cornerRadius="12dp"
+                    app:icon="@android:drawable/ic_menu_my_calendar"
+                    app:iconTint="#0E9488"
+                    app:strokeColor="#CFE4E0"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="9dp"
+                    android:backgroundTint="#F2FAF9"
+                    android:gravity="start|center_vertical"
+                    android:text="Select Appointment Time"
+                    android:textAllCaps="false"
+                    android:textColor="#315D59"
+                    app:cornerRadius="12dp"
+                    app:icon="@android:drawable/ic_lock_idle_alarm"
+                    app:iconTint="#0E9488"
+                    app:strokeColor="#CFE4E0"
+                    app:strokeWidth="1dp" />
+
+                <!-- AVAILABLE SLOTS -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Available Time Slots"
+                    android:textColor="#12302D"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="9dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSlot9"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="9:00 AM"
+                        android:textAllCaps="false"
+                        android:textSize="11sp"
+                        app:cornerRadius="10dp"
+                        app:strokeColor="#0E9488" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSlot1030"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:text="10:30 AM"
+                        android:textAllCaps="false"
+                        android:textSize="11sp"
+                        app:cornerRadius="10dp"
+                        app:strokeColor="#0E9488" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSlot2"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:text="2:00 PM"
+                        android:textAllCaps="false"
+                        android:textSize="11sp"
+                        app:cornerRadius="10dp"
+                        app:strokeColor="#0E9488" />
+                </LinearLayout>
