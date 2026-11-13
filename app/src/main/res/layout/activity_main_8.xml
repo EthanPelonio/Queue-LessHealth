@@ -328,3 +328,77 @@
                         app:cornerRadius="10dp"
                         app:strokeColor="#0E9488" />
                 </LinearLayout>
+
+                <!-- PATIENT TYPE -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:text="PATIENT TYPE"
+                    android:textColor="#0E9488"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.12" />
+
+                <RadioGroup
+                    android:id="@+id/rgPatientType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Regular"
+                        android:textColor="#315D59"
+                        android:buttonTint="#0E9488" />
+
+                    <RadioButton
+                        android:id="@+id/rbPriority"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:text="Priority"
+                        android:textColor="#315D59"
+                        android:buttonTint="#0E9488" />
+                </RadioGroup>
+
+                <Spinner
+                    android:id="@+id/spPriorityCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/booking_spinner_bg"
+                    android:enabled="false"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+
+                <!-- CONFIRM BUTTON -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnConfirmBooking"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="25dp"
+                    android:backgroundTint="#0E9488"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="CONFIRM BOOKING"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    app:cornerRadius="15dp"
+                    app:icon="@android:drawable/ic_menu_send"
+                    app:iconTint="#FFFFFF"
+                    app:iconGravity="textStart" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="Please review your details before confirming."
+                    android:textColor="#91AAA6"
+                    android:textSize="11sp" />
+
