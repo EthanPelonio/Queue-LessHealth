@@ -15,7 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
-/** * Queue-Less Health main menu. */
+/**
+ * Queue-Less Health main menu.
+ */
 public class MainMenu extends AppCompatActivity {
 
     // Session data (your Login / Booking screens should save these)
@@ -107,15 +109,15 @@ public class MainMenu extends AppCompatActivity {
                 openScreen("Register", null, "RegisterActivity", "Register"));
         btnLogout.setOnClickListener(v -> confirmLogout());
 
-        // Open to everyone
+        BookingActivity (activity_main_8.xml)
+        findViewById(R.id.cardBook).setOnClickListener(v ->
+                openScreen("Book Appointment", null, "BookingActivity", "BookAppointmentActivity", "BookAppointment"));
+
         findViewById(R.id.cardDoctors).setOnClickListener(v ->
                 openScreen("Find a Doctor", null, "FindAdoctor", "FindADoctor", "DoctorSearchActivity"));
         findViewById(R.id.cardHelp).setOnClickListener(v ->
                 openScreen("Help & About", null, "HelpActivity"));
 
-        // Need an account
-        findViewById(R.id.cardBook).setOnClickListener(v ->
-                requireLogin("Book Appointment", "BookAppointmentActivity", "BookAppointment"));
         findViewById(R.id.cardQueue).setOnClickListener(v ->
                 requireLogin("My Queue", "QueueActivity", "Queue"));
         findViewById(R.id.cardQueueStatus).setOnClickListener(v ->
@@ -128,83 +130,3 @@ public class MainMenu extends AppCompatActivity {
                 requireLogin("Notifications", "NotificationsActivity"));
         findViewById(R.id.cardProfile).setOnClickListener(v ->
                 requireLogin("My Profile", "ProfileActivity"));
-
-        // Bottom navigation
-        findViewById(R.id.navHome).setOnClickListener(v -> scrollMain.smoothScrollTo(0, 0));
-        findViewById(R.id.navAppointments).setOnClickListener(v ->
-                requireLogin("My Appointments", "AppointmentsActivity", "Appointments"));
-        findViewById(R.id.navQueue).setOnClickListener(v ->
-                requireLogin("My Queue", "QueueActivity", "Queue"));
-        findViewById(R.id.navProfile).setOnClickListener(v ->
-                requireLogin("My Profile", "ProfileActivity"));
-
-        // Specialty chips -> Find a Doctor with the chosen specialty
-        int[] chipIds = {R.id.chipGeneral, R.id.chipPediatrics, R.id.chipDental,
-                R.id.chipCardiology, R.id.chipEye, R.id.chipDerma};
-        for (int id : chipIds) {
-            findViewById(id).setOnClickListener(v -> {
-                String specialty = ((TextView) v).getText().toString();
-                openScreen("Find a Doctor", specialty, "FindAdoctor", "FindADoctor", "DoctorSearchActivity");
-            });
-        }
-
-        findViewById(R.id.btnEmergency).setOnClickListener(v -> confirmEmergency());
-    }
-
-    private void requireLogin(String label, String... candidates) {
-        if (isLoggedIn()) {
-            openScreen(label, null, candidates);
-        } else {
-            new AlertDialog.Builder(this)
-                    .setTitle("Please log in")
-                    .setMessage("You need an account to use \"" + label + "\".")
-                    .setPositiveButton("Login", (d, w) -> openScreen("Login", null, "LoginActivity", "Login"))
-                    .setNeutralButton("Register", (d, w) -> openScreen("Register", null, "RegisterActivity", "Register"))
-                    .setNegativeButton("Cancel", null)
-                    .show();
-        }
-    }
-
-    /** Tries each class name in this package; shows a message if none exist yet. */
-    private void openScreen(String label, String specialty, String... candidates) {
-        String pkg = getClass().getPackage().getName();
-        for (String name : candidates) {
-            try {
-                Class<?> target = Class.forName(pkg + "." + name);
-                Intent intent = new Intent(this, target);
-                if (specialty != null) {
-                    intent.putExtra("specialty", specialty);
-                }
-                startActivity(intent);
-                return;
-            } catch (ClassNotFoundException ignored) {
-                // try next name
-            }
-        }
-        String extra = specialty != null ? " (" + specialty + ")" : "";
-        Toast.makeText(this, label + extra + " screen coming soon", Toast.LENGTH_SHORT).show();
-    }
-
-    private void confirmLogout() {
-        new AlertDialog.Builder(this)
-                .setTitle("Log out")
-                .setMessage("Are you sure you want to log out?")
-                .setPositiveButton("Log out", (d, w) -> {
-                    prefs.edit().clear().apply();
-                    refreshUi();
-                    Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
-                })
-                .setNegativeButton("Cancel", null)
-                .show();
-    }
-
-    private void confirmEmergency() {
-        new AlertDialog.Builder(this)
-                .setTitle("Emergency")
-                .setMessage("This opens your phone dialer with 911. Continue?")
-                .setPositiveButton("Open dialer", (d, w) ->
-                        startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:911"))))
-                .setNegativeButton("Cancel", null)
-                .show();
-    }
-}
