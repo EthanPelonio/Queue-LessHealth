@@ -130,3 +130,12 @@ public class MainMenu extends AppCompatActivity {
                 requireLogin("Notifications", "NotificationsActivity"));
         findViewById(R.id.cardProfile).setOnClickListener(v ->
                 requireLogin("My Profile", "ProfileActivity"));
+
+        // Bottom navigation
+        findViewById(R.id.navHome).setOnClickListener(v -> scrollMain.smoothScrollTo(0, 0));
+        findViewById(R.id.navAppointments).setOnClickListener(v ->
+                requireLogin("My Appointments", "AppointmentsActivity", "Appointments"));
+        findViewById(R.id.navQueue).setOnClickListener(v ->
+                requireLogin("My Queue", "QueueActivity", "Queue"));
+        findViewById(R.id.navProfile).setOnClickListener(v ->
+                requireLogin("My Profile", "ProfileActivity"));
