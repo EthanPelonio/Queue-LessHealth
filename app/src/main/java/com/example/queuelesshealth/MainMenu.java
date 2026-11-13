@@ -207,3 +207,6 @@ public class MainMenu extends AppCompatActivity {
                         startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:911"))))
                 .setNegativeButton("Cancel", null)
                 .show();
+
+    }
+}
