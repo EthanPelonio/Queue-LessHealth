@@ -134,3 +134,24 @@ public class BookingActivity extends AppCompatActivity {
 
         spPriorityCategory.setAdapter(priorityAdapter);
     }
+
+    // 3. PATIENT TYPE SELECTION
+    private void setupPatientType() {
+
+        spPriorityCategory.setEnabled(false);
+
+        rgPatientType.setOnCheckedChangeListener(
+                (group, checkedId) -> {
+
+                    if (checkedId == R.id.rbPriority) {
+
+                        spPriorityCategory.setEnabled(true);
+
+                    } else {
+
+                        spPriorityCategory.setEnabled(false);
+                        spPriorityCategory.setSelection(0);
+                    }
+                }
+        );
+    }
