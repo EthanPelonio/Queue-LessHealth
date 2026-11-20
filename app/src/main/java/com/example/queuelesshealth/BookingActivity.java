@@ -155,3 +155,44 @@ public class BookingActivity extends AppCompatActivity {
                 }
         );
     }
+
+    // 4. DATE PICKER
+    private void setupDatePicker() {
+
+        btnDate.setOnClickListener(v -> {
+
+            Calendar calendar = Calendar.getInstance();
+
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePicker = new DatePickerDialog(
+                    BookingActivity.this,
+
+                    (view, selectedYear, selectedMonth, selectedDay) -> {
+
+                        selectedDate = String.format(
+                                Locale.US,
+                                "%02d/%02d/%04d",
+                                selectedDay,
+                                selectedMonth + 1,
+                                selectedYear
+                        );
+
+                        btnDate.setText(selectedDate);
+                    },
+
+                    year,
+                    month,
+                    day
+            );
+
+            // Prevent selecting past dates
+            datePicker.getDatePicker().setMinDate(
+                    System.currentTimeMillis()
+            );
+
+            datePicker.show();
+        });
+    }
