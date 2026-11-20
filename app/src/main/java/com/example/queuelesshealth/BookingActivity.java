@@ -238,3 +238,186 @@ public class BookingActivity extends AppCompatActivity {
             timePicker.show();
         });
     }
+
+    // 6. AVAILABLE TIME SLOTS
+    private void setupTimeSlots() {
+
+        btnSlot9.setOnClickListener(v -> {
+
+            selectedTime = "9:00 AM";
+            btnTime.setText(selectedTime);
+
+        });
+
+        btnSlot1030.setOnClickListener(v -> {
+
+            selectedTime = "10:30 AM";
+            btnTime.setText(selectedTime);
+
+        });
+
+        btnSlot2.setOnClickListener(v -> {
+
+            selectedTime = "2:00 PM";
+            btnTime.setText(selectedTime);
+
+        });
+    }
+
+    // 7. CONFIRM BOOKING
+    private void setupConfirmButton() {
+
+        btnConfirmBooking.setOnClickListener(v -> {
+
+            String patientName = etFullName.getText().toString().trim();
+            String age = etAge.getText().toString().trim();
+            String reason = etReason.getText().toString().trim();
+
+            String gender = spGender.getSelectedItem().toString();
+
+            // Validate patient name
+            if (patientName.isEmpty()) {
+
+                etFullName.setError("Please enter your full name!");
+                etFullName.requestFocus();
+                return;
+            }
+
+            // Validate age
+            if (age.isEmpty()) {
+
+                etAge.setError("Please enter your age!");
+                etAge.requestFocus();
+                return;
+            }
+
+            int patientAge;
+
+            try {
+
+                patientAge = Integer.parseInt(age);
+
+            } catch (NumberFormatException e) {
+
+                etAge.setError("Please enter a valid age!");
+                etAge.requestFocus();
+                return;
+            }
+
+            if (patientAge < 1 || patientAge > 120) {
+
+                etAge.setError("Please enter a valid age!");
+                etAge.requestFocus();
+                return;
+            }
+
+            // Validate gender
+            if (spGender.getSelectedItemPosition() == 0) {
+
+                Toast.makeText(
+                        this,
+                        "Please select your gender!",
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                return;
+            }
+
+            // Validate reason
+            if (reason.isEmpty()) {
+
+                etReason.setError(
+                        "Please enter your reason for appointment!"
+                );
+
+                etReason.requestFocus();
+                return;
+            }
+
+            // Validate appointment date
+            if (selectedDate.isEmpty()) {
+
+                Toast.makeText(
+                        this,
+                        "Please select an appointment date!",
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                return;
+            }
+
+            // Validate appointment time
+            if (selectedTime.isEmpty()) {
+
+                Toast.makeText(
+                        this,
+                        "Please select an appointment time!",
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                return;
+            }
+
+            // Validate patient type
+            int checkedPatientType =
+                    rgPatientType.getCheckedRadioButtonId();
+
+            if (checkedPatientType == -1) {
+
+                Toast.makeText(
+                        this,
+                        "Please select patient type!",
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                return;
+            }
+
+            String patientType;
+
+            if (checkedPatientType == R.id.rbPriority) {
+
+                if (spPriorityCategory.getSelectedItemPosition() == 0) {
+
+                    Toast.makeText(
+                            this,
+                            "Please select priority category!",
+                            Toast.LENGTH_SHORT
+                    ).show();
+
+                    return;
+                }
+
+                patientType = "Priority - " +
+                        spPriorityCategory.getSelectedItem().toString();
+
+            } else {
+
+                patientType = "Regular";
+            }
+
+            // Appointment Details
+            String appointmentDetails =
+                    "Patient Name: " + patientName +
+                            "\nAge: " + age +
+                            "\nGender: " + gender +
+                            "\nDoctor: Dr. A. Santos" +
+                            "\nSpecialization: General Medicine" +
+                            "\nReason: " + reason +
+                            "\nAppointment Date: " + selectedDate +
+                            "\nAppointment Time: " + selectedTime +
+                            "\nPatient Type: " + patientType;
+
+            // Display Confirmation
+            new AlertDialog.Builder(BookingActivity.this)
+                    .setTitle("Appointment Confirmed!")
+                    .setMessage(appointmentDetails)
+                    .setPositiveButton("OK", (dialog, which) -> Toast.makeText(
+                            BookingActivity.this,
+                            "Booking completed successfully!",
+                            Toast.LENGTH_LONG
+                    ).show())
+                    .show();
+        });
+    }
+}
