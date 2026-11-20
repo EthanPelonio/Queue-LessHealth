@@ -37,3 +37,52 @@ public class BookingActivity extends AppCompatActivity {
     // Selected Appointment Details
     private String selectedDate = "";
     private String selectedTime = "";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_8);
+
+        initViews();
+        setupSpinners();
+        setupPatientType();
+        setupDatePicker();
+        setupTimePicker();
+        setupTimeSlots();
+        setupConfirmButton();
+    }
+
+    // 1. INITIALIZE VIEWS
+    private void initViews() {
+
+        etFullName = findViewById(R.id.etFullName);
+        etAge = findViewById(R.id.etAge);
+        etReason = findViewById(R.id.etReason);
+
+        // Ensure text and hints are visible on light backgrounds
+        int darkText = Color.parseColor("#111827");
+        int hintGray = Color.parseColor("#6B7280");
+
+        etFullName.setTextColor(darkText);
+        etFullName.setHintTextColor(hintGray);
+
+        etAge.setTextColor(darkText);
+        etAge.setHintTextColor(hintGray);
+
+        etReason.setTextColor(darkText);
+        etReason.setHintTextColor(hintGray);
+
+        spGender = findViewById(R.id.spGender);
+        spPriorityCategory = findViewById(R.id.spPriorityCategory);
+
+        rgPatientType = findViewById(R.id.rgPatientType);
+
+        btnDate = findViewById(R.id.btnDate);
+        btnTime = findViewById(R.id.btnTime);
+
+        btnSlot9 = findViewById(R.id.btnSlot9);
+        btnSlot1030 = findViewById(R.id.btnSlot1030);
+        btnSlot2 = findViewById(R.id.btnSlot2);
+
+        btnConfirmBooking = findViewById(R.id.btnConfirmBooking);
+    }
