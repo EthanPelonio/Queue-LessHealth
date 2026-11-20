@@ -196,3 +196,45 @@ public class BookingActivity extends AppCompatActivity {
             datePicker.show();
         });
     }
+    // 5. TIME PICKER
+    private void setupTimePicker() {
+
+        btnTime.setOnClickListener(v -> {
+
+            Calendar calendar = Calendar.getInstance();
+
+            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+            int minute = calendar.get(Calendar.MINUTE);
+
+            TimePickerDialog timePicker = new TimePickerDialog(
+                    BookingActivity.this,
+
+                    (view, selectedHour, selectedMinute) -> {
+
+                        String amPm = selectedHour < 12 ? "AM" : "PM";
+
+                        int displayHour = selectedHour % 12;
+
+                        if (displayHour == 0) {
+                            displayHour = 12;
+                        }
+
+                        selectedTime = String.format(
+                                Locale.US,
+                                "%d:%02d %s",
+                                displayHour,
+                                selectedMinute,
+                                amPm
+                        );
+
+                        btnTime.setText(selectedTime);
+                    },
+
+                    hour,
+                    minute,
+                    false
+            );
+
+            timePicker.show();
+        });
+    }
