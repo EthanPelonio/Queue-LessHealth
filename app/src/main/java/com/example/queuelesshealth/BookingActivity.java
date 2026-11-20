@@ -86,3 +86,51 @@ public class BookingActivity extends AppCompatActivity {
 
         btnConfirmBooking = findViewById(R.id.btnConfirmBooking);
     }
+
+    // 2. SETUP SPINNERS
+    private void setupSpinners() {
+        setupGenderSpinner();
+        setupPrioritySpinner();
+    }
+
+    private void setupGenderSpinner() {
+        String[] genderOptions = {
+                "Select Gender",
+                "Male",
+                "Female",
+                "Other"
+        };
+
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_item,
+                genderOptions
+        );
+
+        genderAdapter.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item
+        );
+
+        spGender.setAdapter(genderAdapter);
+    }
+
+    private void setupPrioritySpinner() {
+        String[] priorityOptions = {
+                "Select Priority Category",
+                "Senior Citizen",
+                "Person with Disability (PWD)",
+                "Pregnant"
+        };
+
+        ArrayAdapter<String> priorityAdapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_item,
+                priorityOptions
+        );
+
+        priorityAdapter.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item
+        );
+
+        spPriorityCategory.setAdapter(priorityAdapter);
+    }
